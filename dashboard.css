@@ -213,3 +213,17 @@ html.modal-open,html.modal-open body{overflow:hidden}
 }
 
 .afoot{display:flex;align-items:flex-start;gap:8px}.afoot details{flex:1;min-width:0}.afoot>a{flex:none}
+
+.hbtns{display:flex;align-items:center;gap:8px;min-width:0;justify-content:flex-end;flex:0 1 auto;max-width:70%}
+.hbtns .pill{max-width:none;min-width:0}
+.ibtn{flex:none;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--text);cursor:pointer;padding:0}
+.ibtn:focus-visible{outline:2px solid var(--b);outline-offset:2px}
+.ibtn:active{transform:scale(.95)}
+.ibtn.del{background:none;border:0;color:var(--mut)}
+.ibtn.del:hover{color:#ef5b5b}
+.ibtn.spin .ico{animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.ibtn.spin .ico{animation:none;opacity:.5}}
+.toast .tact{margin-left:12px;background:none;border:0;color:var(--b);font:inherit;font-weight:600;min-height:32px;cursor:pointer;padding:0 4px}
+#syncLbl:empty{display:none}
+#syncLbl{margin-top:6px}

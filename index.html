@@ -21,11 +21,12 @@
 <div class="sample-banner hide" id="sampleBanner">⚠ SAMPLE DATA · not real, not saved</div>
 <header class="top">
   <h1>MNQ Journal</h1>
-  <button type="button" class="pill" id="rangeBtn" aria-haspopup="dialog"><span class="ico" data-i="cal"></span><span id="rangeLbl">All time</span><span class="ico sm" data-i="down"></span></button>
+  <div class="hbtns"><button type="button" class="ibtn" id="syncBtn" aria-label="Sync TopstepX" title="Sync TopstepX"><span class="ico" data-i="sync"></span></button>
+  <button type="button" class="pill" id="rangeBtn" aria-haspopup="dialog"><span class="ico" data-i="cal"></span><span id="rangeLbl">All time</span><span class="ico sm" data-i="down"></span></button></div>
 </header>
 <main>
   <label class="acctrow card" for="fAcct"><span class="ico wallet" data-i="wallet"></span><span class="mut">Account</span>
-    <select id="fAcct" aria-label="Account"></select><span class="ico sm mut" data-i="right"></span></label>
+    <select id="fAcct" aria-label="Account"></select><button type="button" class="ibtn del hide" id="delAcct" aria-label="Delete account" title="Delete account"><span class="ico sm" data-i="trash"></span></button><span class="ico sm mut" data-i="right"></span></label>
   <section id="acctSum" class="card acctsum hide" aria-label="TopstepX account summary"></section>
 
   <section id="viewDash" class="view">
@@ -42,6 +43,7 @@
     <div class="tlist" id="recent"></div>
     <div class="card prefs">
       <div class="row"><label class="switch"><input type="checkbox" id="fSample"><span class="knob"></span> Sample data (fake)</label><button type="button" class="info" id="prefInfo" aria-label="About storage"><span class="ico sm" data-i="info"></span></button></div>
+      <div class="small mut" id="syncLbl"></div>
     </div>
   </section>
 
