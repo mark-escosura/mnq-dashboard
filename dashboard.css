@@ -227,3 +227,41 @@ html.modal-open,html.modal-open body{overflow:hidden}
 .toast .tact{margin-left:12px;background:none;border:0;color:var(--b);font:inherit;font-weight:600;min-height:32px;cursor:pointer;padding:0 4px}
 #syncLbl:empty{display:none}
 #syncLbl{margin-top:6px}
+
+.tabbar .tab{min-width:0}
+.btn.ghost{background:none}.btn.danger{color:var(--r);border-color:rgba(255,92,92,.4);background:none}
+.setlist{padding:4px 14px}.setlist .setrow+.setrow{border-top:1px solid var(--line)}
+.setrow{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;padding:6px 0}
+.card.setrow{padding:8px 14px}
+.setrow .sa{min-width:0}.setrow .sn{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.setrow a{color:var(--b)}.btns0{display:flex;gap:8px}
+#setSync.spin .ico{animation:spin 1s linear infinite}
+.setrow .btn .ico{vertical-align:-3px}
+/* calendar */
+.calhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.calt{text-align:center;min-width:0}.calt h2{margin:0 0 2px;font-size:18px}.calt b{font-size:22px}
+.calcard{padding:8px}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr)) minmax(0,1.25fr);gap:4px}
+.cwd{font-size:11px;color:var(--mut);text-align:center;padding:4px 0;text-transform:uppercase;letter-spacing:.04em}
+.cday{min-height:74px;border-radius:10px;background:var(--card2);border:0;color:var(--text);display:flex;flex-direction:column;align-items:flex-start;padding:6px;gap:2px;font:inherit;min-width:0;overflow:hidden;text-align:left}
+.cday.out{background:none}
+.cday .dn{font-size:11px;color:var(--mut)}
+.cday.has{cursor:pointer}.cday.has .dn{color:var(--text);opacity:.85}
+.cday b{font-size:13px;font-weight:700;white-space:nowrap;margin-top:auto;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.cday .dc,.cweek .dc{font-size:11px;opacity:.85}
+.cday:focus-visible{outline:2px solid var(--b);outline-offset:1px}
+.cday.has:active{transform:scale(.96)}
+.cweek{border-radius:10px;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;padding:6px;gap:2px;min-width:0;overflow:hidden}
+.cweek b{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cweek .wl{font-size:11px;color:var(--mut)}
+.cweek.none b{color:var(--mut)}
+#dayList{margin-top:12px;max-height:60vh;overflow:auto}#dayList .chev{display:none}#dayList .trade{cursor:default;padding-right:14px}
+@media (max-width:640px){
+  .cal{grid-template-columns:repeat(7,minmax(0,1fr));gap:3px}
+  .cwd span{display:none}.cwk{display:none}
+  .cday{min-height:58px;padding:4px;border-radius:8px}
+  .cday b{font-size:11px;letter-spacing:-.02em}.cday .dc{font-size:10px}
+  .cweek{grid-column:1/-1;flex-direction:row;align-items:center;gap:10px;padding:5px 10px;min-height:32px;margin-bottom:4px}
+  .cweek b{font-size:13px}.cweek .dc{margin-left:auto}
+}
+body[data-view=set] .fab,body[data-view=set] .acctrow,body[data-view=set] #acctSum,body[data-view=cal] #acctSum,body[data-view=set] #rangeBtn,body[data-view=cal] #rangeBtn{display:none!important}
+.setrow .ibtn.del{position:static;flex:none;width:44px;height:44px;color:var(--mut)}
