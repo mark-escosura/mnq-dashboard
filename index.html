@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1117">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MNQ Journal">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<title>MNQ Journal · Strategy Dashboard</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="dashboard.css">
+<script src="vendor/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="sample-banner hide" id="sampleBanner">⚠ SAMPLE DATA · not real, not saved</div>
+<header class="top">
+  <h1>MNQ Journal</h1>
+  <button type="button" class="pill" id="rangeBtn" aria-haspopup="dialog"><span class="ico" data-i="cal"></span><span id="rangeLbl">All time</span><span class="ico sm" data-i="down"></span></button>
+</header>
+<main>
+  <label class="acctrow card" for="fAcct"><span class="ico wallet" data-i="wallet"></span><span class="mut">Account</span>
+    <select id="fAcct" aria-label="Account"></select><span class="ico sm mut" data-i="right"></span></label>
+  <section id="acctSum" class="card acctsum hide" aria-label="TopstepX account summary"></section>
+
+  <section id="viewDash" class="view">
+    <div class="kpis" id="kpis"></div>
+    <section class="card eqcard">
+      <div class="row"><h2>Equity Curve <button type="button" class="info" id="eqInfo" aria-label="About the equity curve"><span class="ico sm" data-i="info"></span></button></h2>
+        <select id="eqMode" class="seg" aria-label="Equity curve grouping"><option value="daily">Daily</option><option value="weekly">Weekly</option></select></div>
+      <div class="chartbox"><canvas id="eqChart" aria-label="Equity curve"></canvas><div class="empty hide" id="eqEmpty">No trades yet.</div></div>
+      <div class="small mut hide" id="eqNote"></div>
+    </section>
+    <div class="sechead"><h2>Strategies</h2><button type="button" class="link" data-go="trades">View all <span class="ico sm" data-i="right"></span></button></div>
+    <div class="strats" id="strats"></div>
+    <div class="sechead"><h2>Recent Trades</h2><button type="button" class="link" data-go="trades">View all <span class="ico sm" data-i="right"></span></button></div>
+    <div class="tlist" id="recent"></div>
+    <div class="card prefs">
+      <div class="row"><label class="switch"><input type="checkbox" id="fSample"><span class="knob"></span> Sample data (fake)</label><button type="button" class="info" id="prefInfo" aria-label="About storage"><span class="ico sm" data-i="info"></span></button></div>
+    </div>
+  </section>
+
+  <section id="viewTrades" class="view hide">
+    <div class="sechead"><h2>All Trades <span class="mut small" id="tradeCount"></span></h2><button type="button" class="btn sm" id="btnExport">⬇ Export CSV</button></div>
+    <div class="tlist" id="allTrades"></div>
+    <div class="sechead"><h2>Strategy details</h2></div>
+    <section class="card"><div class="tw"><table id="tblSetup"></table></div></section>
+  </section>
+</main>
+
+<button type="button" class="fab" id="btnAdd" aria-label="Add trade"><span class="ico" data-i="plus"></span></button>
+<nav class="tabbar" aria-label="Sections">
+  <button type="button" class="tab on" id="tabDash" data-go="dash"><span class="ico" data-i="grid"></span><span>Dashboard</span></button>
+  <button type="button" class="tab" id="tabTrades" data-go="trades"><span class="ico" data-i="list"></span><span>Trades</span></button>
+  <button type="button" class="tab" id="btnImport"><span class="ico" data-i="upload"></span><span>Import</span></button>
+  <button type="button" class="tab" id="btnShare"><span class="ico" data-i="share"></span><span>Share</span></button>
+</nav>
+
+<!-- Date range -->
+<div class="modal hide" id="mRange" role="dialog" aria-modal="true" aria-labelledby="mRangeT">
+  <div class="sheet">
+    <div class="row"><h2 id="mRangeT">Date range</h2><button type="button" class="x" data-close aria-label="Close">✕</button></div>
+    <div class="presets" id="presets">
+      <button type="button" class="chipbtn" data-preset="all">All time</button>
+      <button type="button" class="chipbtn" data-preset="week">This week</button>
+      <button type="button" class="chipbtn" data-preset="month">This month</button>
+      <button type="button" class="chipbtn" data-preset="last30">Last 30 days</button>
+      <button type="button" class="chipbtn" data-preset="lastmonth">Last month</button>
+      <button type="button" class="chipbtn" data-preset="ytd">Year to date</button>
+    </div>
+    <div class="fg">
+      <label>From<input type="date" id="fFrom"></label>
+      <label>To<input type="date" id="fTo"></label>
+    </div>
+    <div class="btns"><button type="button" class="info" id="rangeInfo" aria-label="About comparisons"><span class="ico sm" data-i="info"></span></button><button type="button" class="btn" id="fClear">Clear</button><button type="button" class="btn pri" data-close>Done</button></div>
+  </div>
+</div>
+
+<!-- Add trade -->
+<div class="modal hide" id="mAdd" role="dialog" aria-modal="true" aria-labelledby="mAddT">
+  <form class="sheet" id="addForm" autocomplete="off">
+    <div class="row"><h2 id="mAddT">Add trade</h2><button type="button" class="x" data-close>✕</button></div>
+    <div class="fg">
+      <label>Date<input type="date" name="date" required></label>
+      <label>Entry time (PT)<input type="time" name="time"></label>
+      <label>Instrument<input name="instrument" value="MNQ"></label>
+      <label>Direction<select name="direction"><option value="long">Long</option><option value="short">Short</option></select></label>
+      <label>Contracts<input name="contracts" type="number" min="1" step="1" value="2"></label>
+      <label>Entry<input name="entry" inputmode="decimal"></label>
+      <label>Stop<input name="stop" inputmode="decimal"></label>
+      <label>Target<input name="target" inputmode="decimal"></label>
+      <label>Exit<input name="exit" inputmode="decimal"></label>
+      <label>Exit time (PT)<input type="time" name="exit_time"></label>
+      <label>P&amp;L $ <span class="mut small" id="pnlHint">(auto for MNQ)</span><input name="pnl" inputmode="decimal"></label>
+      <label>R <span class="mut small" id="rHint">(auto)</span><input name="r" inputmode="decimal"></label>
+      <label>Setup<input name="setup" value="Midpoint rule" list="setupList"></label>
+      <label>Followed rules<select name="followed"><option value="">—</option><option value="yes">Yes</option><option value="no">No</option></select></label>
+      <label class="wide">Notes<textarea name="notes" rows="2"></textarea></label>
+      <div class="wide" id="acctBoxes"></div>
+    </div>
+    <datalist id="setupList"></datalist>
+    <div class="err small" id="addErr"></div>
+    <div class="btns"><button type="button" class="btn" data-close>Cancel</button><button type="submit" class="btn pri">Save trade</button></div>
+  </form>
+</div>
+
+<!-- Import -->
+<div class="modal hide" id="mImp" role="dialog" aria-modal="true" aria-labelledby="mImpT">
+  <div class="sheet">
+    <div class="row"><h2 id="mImpT">Import / export</h2><button type="button" class="x" data-close>✕</button></div>
+    <details class="more"><summary>ⓘ Formats</summary><p class="small mut">Accepts this journal's CSV (journal.csv format) or a TopstepX / ProjectX <b>Trades</b> export (Id, ContractName, EnteredAt, ExitedAt, EntryPrice, ExitPrice, Fees, PnL, Size, Type…). Duplicates are skipped by trade ID. Other broker formats are not supported here. <b>Export CSV</b> downloads everything in journal.csv format.</p></details>
+    <div class="fg">
+      <label>Account<select id="impAcct"></select></label>
+      <label>Time zone<select id="impZone"><option value="America/Los_Angeles">Pacific (PT)</option><option value="America/Chicago">Central (CT)</option><option value="America/New_York">Eastern (ET)</option><option value="UTC">UTC</option></select></label>
+      <label class="wide">File<input type="file" id="impFile" accept=".csv,text/csv,text/plain"></label>
+    </div>
+    <div class="small" id="impResult" aria-live="polite"></div>
+    <div class="btns"><button type="button" class="btn hide" id="impUndo">↶ Undo</button><button type="button" class="btn" id="impLoadJournal">Load journal</button><button type="button" class="btn" id="btnExport2">⬇ Export CSV</button><button type="button" class="btn pri" data-close>Done</button></div>
+  </div>
+</div>
+
+<!-- Share -->
+<div class="modal hide" id="mShare" role="dialog" aria-modal="true" aria-labelledby="mShareT">
+  <div class="sheet wide-sheet">
+    <div class="row noprint"><h2 id="mShareT">Share stats</h2><button type="button" class="x" data-close>✕</button></div>
+    <div class="fg noprint">
+      <label>Title<input id="shTitle" value="TopstepX results"></label>
+      <label>From <input type="date" id="shFrom"></label>
+      <label>To <input type="date" id="shTo"></label>
+      <label>Account<select id="shAcct"></select></label>
+    </div>
+    <div class="share-card" id="shareCard">
+      <div class="sc-head"><div><div class="sc-title" id="scTitle"></div><div class="small mut" id="scSub"></div></div><div class="sc-brand">📓 Trading Journal</div></div>
+      <div class="kpis sc-kpis" id="scKpis"></div>
+      <div class="chartbox sc-chart"><canvas id="shChart"></canvas><div class="empty hide" id="shEmpty">No trades in this range.</div></div>
+      <div class="small mut sc-foot" id="scFoot"></div>
+    </div>
+    <div class="btns noprint"><button type="button" class="info" id="shareInfo" aria-label="About sharing"><span class="ico sm" data-i="info"></span></button><button type="button" class="btn" id="shPng">🖼 PNG</button><button type="button" class="btn" id="shPrint">🖨 PDF</button><button type="button" class="btn pri" data-close>Close</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="seed-data.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>
