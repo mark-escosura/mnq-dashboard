@@ -7,31 +7,38 @@
    "topstepx_account_id": 29039130,
    "topstepx_account_name": "EXPRESS-V2-DLL-31941-61997534",
    "source_url": "https://www.topstepx.com/share/stats?share=29039130",
-   "fetched_at_pt": "2026-10-27 02:47:03 PDT",
+   "fetched_at_pt": "2026-10-27 14:31:20 PDT",
    "fetched_at_note": "Time reported by TopstepX User/currentTimeUtc during the fetch, converted to PT.",
    "share_page_range_default": "09/27/2026 – 10/27/2026",
    "notes": "Stats are verbatim JSON from the share page's own public XHRs (no login). In TopstepX's stats, 'totalPnL' is gross; the page's Total P&L ($37.80) is net of totalFees and totalCommissions. 'balance' in these responses is the period's net P&L, not the account balance; the page does not expose the account balance. Trades (20) were appended to journal.csv with import_keys topstepx:<id>.",
    "share_page_displayed": {
-    "Total P&L": "$36.60",
-    "Trade Win %": "57.69%",
-    "Avg Win / Avg Loss": "0.75 ($126.71 / -$169.46)",
-    "Day Win %": "57.69%",
-    "Profit Factor": "1.02 (-$1,864.10 / $1,900.70)",
-    "Best Day % of Total Profit": "100.00%",
-    "Total Number of Trades": "26",
-    "Total Number of Lots Traded": "345",
-    "Average Trade Duration": "1 min 5 sec",
-    "Average Win Duration": "1 min 17 sec",
-    "Average Loss Duration": "38 sec",
-    "Trade Direction %": "73.08% (19 / 7)",
+    "Total P&L": "-$1,010.70",
+    "Trade Win %": "48.48%",
+    "Avg Win / Avg Loss": "0.71 ($127.03 / -$179.01)",
+    "Day Win %": "48.48%",
+    "Profit Factor": "0.67 (-$3,043.10 / $2,032.40)",
+    "Best Day % of Total Profit": "0.00%",
+    "Total Number of Trades": "33",
+    "Total Number of Lots Traded": "435",
+    "Average Trade Duration": "1 min 7 sec",
+    "Average Win Duration": "1 min 18 sec",
+    "Average Loss Duration": "51 sec",
+    "Trade Direction %": "72.73% (24 / 9)",
     "Best Trade": "$349.20 (Long 15 /MNQ @ 29387.75, exited @ 29400, 10/27/2026 01:20:11)",
-    "Worst Trade": "-$393.30 (Long 15 /MNQ @ 29379.5, exited @ 29367, 10/27/2026 01:31:29)",
-    "Most Active Day": "Tuesday (1 active days, 26 total trades, 26.00 avg trades/day)",
-    "Most Profitable Day": "Monday ($36.60)",
-    "Least Profitable Day": "Monday ($36.60)",
-    "Monthly P/L": "$36.60 (Oct 2026)"
+    "Worst Trade": "-$415.80 (Long 15 /MNQ @ 29459.25, exited @ 29446, 10/27/2026 03:02:21)",
+    "Most Active Day": "Tuesday (1 active days, 33 total trades, 33.00 avg trades/day)",
+    "Most Profitable Day": "Monday (-$1,010.70)",
+    "Least Profitable Day": "Monday (-$1,010.70)",
+    "Monthly P/L": "-$1,010.70 (Oct 2026)"
    },
    "raw_responses": {
+    "User/currentTimeUtc": [
+     {
+      "method": "GET",
+      "request": null,
+      "response": "2026-10-27T21:31:20.5344209+00:00"
+     }
+    ],
     "UserContract/all": [
      {
       "method": "GET",
@@ -8916,13 +8923,6 @@
       ]
      }
     ],
-    "User/currentTimeUtc": [
-     {
-      "method": "GET",
-      "request": null,
-      "response": "2026-10-27T09:47:03.3828505+00:00"
-     }
-    ],
     "Statistics/checkSharing?tradingAccountId=29039130": [
      {
       "method": "GET",
@@ -8935,6 +8935,34 @@
       "method": "GET",
       "request": null,
       "response": "EXPRESS-V2-DLL-31941-61997534"
+     }
+    ],
+    "Statistics/todaystats?accountId=29039130": [
+     {
+      "method": "POST",
+      "request": null,
+      "response": [
+       {
+        "tradeDay": "2026-10-27T05:00:00+00:00",
+        "balance": -1010.7,
+        "products": [
+         {
+          "tradeDay": "2026-10-27T05:00:00+00:00",
+          "symbolId": "F.US.MNQ",
+          "totalTradedContracts": 870
+         }
+        ],
+        "tradeDate": "0001-01-01T00:00:00+00:00",
+        "totalPnL": -480.0,
+        "totalTrades": 33,
+        "winningTrades": 16,
+        "losingTrades": 17,
+        "neutralTrades": 0,
+        "winRate": 0.48484848484848486,
+        "totalFees": 313.2,
+        "totalCommissions": 217.5
+       }
+      ]
      }
     ],
     "JournalLog/getForRange": [
@@ -8957,20 +8985,6 @@
       "response": []
      }
     ],
-    "Statistics/profitFactor": [
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29039130,
-       "startTradeDay": "2026-09-27T05:00:00.000Z",
-       "endTradeDay": "2026-10-28T04:59:59.999Z"
-      },
-      "response": {
-       "totalProfit": 1900.7,
-       "totalLoss": -1864.1
-      }
-     }
-    ],
     "Statistics/winlossavg": [
      {
       "method": "POST",
@@ -8980,8 +8994,8 @@
        "endTradeDay": "2026-10-28T04:59:59.999Z"
       },
       "response": {
-       "averageWin": 126.71333333333334,
-       "averageLoss": -169.46363636363637
+       "averageWin": 127.025,
+       "averageLoss": -179.00588235294117
       }
      }
     ],
@@ -8996,14 +9010,14 @@
       "response": [
        {
         "tradeDate": "2026-10-27T05:00:00+00:00",
-        "totalPnL": 457.5,
-        "totalTrades": 26,
-        "winningTrades": 15,
-        "losingTrades": 11,
+        "totalPnL": -480.0,
+        "totalTrades": 33,
+        "winningTrades": 16,
+        "losingTrades": 17,
         "neutralTrades": 0,
-        "winRate": 0.5769230769230769,
-        "totalFees": 248.4,
-        "totalCommissions": 172.5
+        "winRate": 0.48484848484848486,
+        "totalFees": 313.2,
+        "totalCommissions": 217.5
        }
       ]
      },
@@ -9017,49 +9031,86 @@
       "response": [
        {
         "tradeDate": "2026-10-27T05:00:00+00:00",
-        "totalPnL": 457.5,
-        "totalTrades": 26,
-        "winningTrades": 15,
-        "losingTrades": 11,
+        "totalPnL": -480.0,
+        "totalTrades": 33,
+        "winningTrades": 16,
+        "losingTrades": 17,
         "neutralTrades": 0,
-        "winRate": 0.5769230769230769,
-        "totalFees": 248.4,
-        "totalCommissions": 172.5
+        "winRate": 0.48484848484848486,
+        "totalFees": 313.2,
+        "totalCommissions": 217.5
+       }
+      ]
+     }
+    ],
+    "Statistics/profitFactor": [
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29039130,
+       "startTradeDay": "2026-09-27T05:00:00.000Z",
+       "endTradeDay": "2026-10-28T04:59:59.999Z"
+      },
+      "response": {
+       "totalProfit": 2032.4,
+       "totalLoss": -3043.1
+      }
+     }
+    ],
+    "Statistics/lifetimestats": [
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29039130
+      },
+      "response": [
+       {
+        "tradeDate": "2026-10-27T05:00:00+00:00",
+        "totalPnL": -480.0,
+        "totalTrades": 33,
+        "winningTrades": 16,
+        "losingTrades": 17,
+        "neutralTrades": 0,
+        "winRate": 0.48484848484848486,
+        "totalFees": 313.2,
+        "totalCommissions": 217.5
+       }
+      ]
+     }
+    ],
+    "Statistics/daily": [
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29039130,
+       "startTradeDay": "2026-09-27T05:00:00.000Z",
+       "endTradeDay": "2026-10-28T04:59:59.999Z"
+      },
+      "response": [
+       {
+        "tradeDay": "2026-10-27T05:00:00+00:00",
+        "balance": -1010.7,
+        "products": [
+         {
+          "tradeDay": "2026-10-27T05:00:00+00:00",
+          "symbolId": "F.US.MNQ",
+          "totalTradedContracts": 870
+         }
+        ],
+        "tradeDate": "0001-01-01T00:00:00+00:00",
+        "totalPnL": -480.0,
+        "totalTrades": 33,
+        "winningTrades": 16,
+        "losingTrades": 17,
+        "neutralTrades": 0,
+        "winRate": 0.48484848484848486,
+        "totalFees": 313.2,
+        "totalCommissions": 217.5
        }
       ]
      }
     ],
     "Statistics/weekly": [
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29039130,
-       "startTradeDay": "2026-10-25T07:00:00.000Z",
-       "endTradeDay": "2026-11-01T06:59:59.999Z"
-      },
-      "response": [
-       {
-        "tradeDay": "2026-10-26T05:00:00+00:00",
-        "balance": 36.6,
-        "products": [
-         {
-          "tradeDay": "2026-10-27T05:00:00+00:00",
-          "symbolId": "F.US.MNQ",
-          "totalTradedContracts": 690
-         }
-        ],
-        "tradeDate": "0001-01-01T00:00:00+00:00",
-        "totalPnL": 457.5,
-        "totalTrades": 26,
-        "winningTrades": 15,
-        "losingTrades": 11,
-        "neutralTrades": 0,
-        "winRate": 0.5769230769230769,
-        "totalFees": 248.4,
-        "totalCommissions": 172.5
-       }
-      ]
-     },
      {
       "method": "POST",
       "request": {
@@ -9073,8 +9124,8 @@
       "method": "POST",
       "request": {
        "tradingAccountId": 29039130,
-       "startTradeDay": "2026-09-27T07:00:00.000Z",
-       "endTradeDay": "2026-10-04T06:59:59.999Z"
+       "startTradeDay": "2026-11-01T07:00:00.000Z",
+       "endTradeDay": "2026-11-08T07:59:59.999Z"
       },
       "response": []
      },
@@ -9082,10 +9133,31 @@
       "method": "POST",
       "request": {
        "tradingAccountId": 29039130,
-       "startTradeDay": "2026-11-01T07:00:00.000Z",
-       "endTradeDay": "2026-11-08T07:59:59.999Z"
+       "startTradeDay": "2026-10-25T07:00:00.000Z",
+       "endTradeDay": "2026-11-01T06:59:59.999Z"
       },
-      "response": []
+      "response": [
+       {
+        "tradeDay": "2026-10-26T05:00:00+00:00",
+        "balance": -1010.7,
+        "products": [
+         {
+          "tradeDay": "2026-10-27T05:00:00+00:00",
+          "symbolId": "F.US.MNQ",
+          "totalTradedContracts": 870
+         }
+        ],
+        "tradeDate": "0001-01-01T00:00:00+00:00",
+        "totalPnL": -480.0,
+        "totalTrades": 33,
+        "winningTrades": 16,
+        "losingTrades": 17,
+        "neutralTrades": 0,
+        "winRate": 0.48484848484848486,
+        "totalFees": 313.2,
+        "totalCommissions": 217.5
+       }
+      ]
      },
      {
       "method": "POST",
@@ -9104,55 +9176,15 @@
        "endTradeDay": "2026-10-25T06:59:59.999Z"
       },
       "response": []
-     }
-    ],
-    "Statistics/lifetimestats": [
+     },
      {
       "method": "POST",
       "request": {
-       "tradingAccountId": 29039130
+       "tradingAccountId": 29039130,
+       "startTradeDay": "2026-09-27T07:00:00.000Z",
+       "endTradeDay": "2026-10-04T06:59:59.999Z"
       },
-      "response": [
-       {
-        "tradeDate": "2026-10-27T05:00:00+00:00",
-        "totalPnL": 457.5,
-        "totalTrades": 26,
-        "winningTrades": 15,
-        "losingTrades": 11,
-        "neutralTrades": 0,
-        "winRate": 0.5769230769230769,
-        "totalFees": 248.4,
-        "totalCommissions": 172.5
-       }
-      ]
-     }
-    ],
-    "Statistics/todaystats?accountId=29039130": [
-     {
-      "method": "POST",
-      "request": null,
-      "response": [
-       {
-        "tradeDay": "2026-10-27T05:00:00+00:00",
-        "balance": 36.6,
-        "products": [
-         {
-          "tradeDay": "2026-10-27T05:00:00+00:00",
-          "symbolId": "F.US.MNQ",
-          "totalTradedContracts": 690
-         }
-        ],
-        "tradeDate": "0001-01-01T00:00:00+00:00",
-        "totalPnL": 457.5,
-        "totalTrades": 26,
-        "winningTrades": 15,
-        "losingTrades": 11,
-        "neutralTrades": 0,
-        "winRate": 0.5769230769230769,
-        "totalFees": 248.4,
-        "totalCommissions": 172.5
-       }
-      ]
+      "response": []
      }
     ],
     "Statistics/monthly": [
@@ -9166,61 +9198,29 @@
       "response": [
        {
         "tradeDay": "2026-10-01T00:00:00-05:00",
-        "balance": 36.6,
+        "balance": -1010.7,
         "products": [
          {
           "tradeDay": "2026-10-27T05:00:00+00:00",
           "symbolId": "F.US.MNQ",
-          "totalTradedContracts": 690
+          "totalTradedContracts": 870
          }
         ],
         "tradeDate": "0001-01-01T00:00:00+00:00",
-        "totalPnL": 457.5,
-        "totalTrades": 26,
-        "winningTrades": 15,
-        "losingTrades": 11,
+        "totalPnL": -480.0,
+        "totalTrades": 33,
+        "winningTrades": 16,
+        "losingTrades": 17,
         "neutralTrades": 0,
-        "winRate": 0.5769230769230769,
-        "totalFees": 248.4,
-        "totalCommissions": 172.5
-       }
-      ]
-     }
-    ],
-    "Statistics/daily": [
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29039130,
-       "startTradeDay": "2026-09-27T05:00:00.000Z",
-       "endTradeDay": "2026-10-28T04:59:59.999Z"
-      },
-      "response": [
-       {
-        "tradeDay": "2026-10-27T05:00:00+00:00",
-        "balance": 36.6,
-        "products": [
-         {
-          "tradeDay": "2026-10-27T05:00:00+00:00",
-          "symbolId": "F.US.MNQ",
-          "totalTradedContracts": 690
-         }
-        ],
-        "tradeDate": "0001-01-01T00:00:00+00:00",
-        "totalPnL": 457.5,
-        "totalTrades": 26,
-        "winningTrades": 15,
-        "losingTrades": 11,
-        "neutralTrades": 0,
-        "winRate": 0.5769230769230769,
-        "totalFees": 248.4,
-        "totalCommissions": 172.5
+        "winRate": 0.48484848484848486,
+        "totalFees": 313.2,
+        "totalCommissions": 217.5
        }
       ]
      }
     ]
    },
-   "last_sync_pt": "2026-10-27 02:47:10 PDT"
+   "last_sync_pt": "2026-10-27 14:31:27 PDT"
   }
  ]
 }
