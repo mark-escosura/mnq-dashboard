@@ -7,36 +7,36 @@
    "topstepx_account_id": 29039130,
    "topstepx_account_name": "EXPRESS-V2-DLL-31941-61997534",
    "source_url": "https://www.topstepx.com/share/stats?share=29039130",
-   "fetched_at_pt": "2026-10-27 14:31:20 PDT",
+   "fetched_at_pt": "2026-10-29 14:39:36 PDT",
    "fetched_at_note": "Time reported by TopstepX User/currentTimeUtc during the fetch, converted to PT.",
-   "share_page_range_default": "09/27/2026 – 10/27/2026",
+   "share_page_range_default": "09/29/2026 – 10/29/2026",
    "notes": "Stats are verbatim JSON from the share page's own public XHRs (no login). In TopstepX's stats, 'totalPnL' is gross; the page's Total P&L ($37.80) is net of totalFees and totalCommissions. 'balance' in these responses is the period's net P&L, not the account balance; the page does not expose the account balance. Trades (20) were appended to journal.csv with import_keys topstepx:<id>.",
    "share_page_displayed": {
-    "Total P&L": "-$1,010.70",
-    "Trade Win %": "48.48%",
-    "Avg Win / Avg Loss": "0.71 ($127.03 / -$179.01)",
-    "Day Win %": "48.48%",
-    "Profit Factor": "0.67 (-$3,043.10 / $2,032.40)",
+    "Total P&L": "-$2,002.98",
+    "Trade Win %": "43.24%",
+    "Avg Win / Avg Loss": "0.66 ($127.03 / -$192.16)",
+    "Day Win %": "No trades",
+    "Profit Factor": "0.50 (-$4,035.38 / $2,032.40)",
     "Best Day % of Total Profit": "0.00%",
-    "Total Number of Trades": "33",
-    "Total Number of Lots Traded": "435",
-    "Average Trade Duration": "1 min 7 sec",
+    "Total Number of Trades": "37",
+    "Total Number of Lots Traded": "459",
+    "Average Trade Duration": "1 min 5 sec",
     "Average Win Duration": "1 min 18 sec",
     "Average Loss Duration": "51 sec",
-    "Trade Direction %": "72.73% (24 / 9)",
+    "Trade Direction %": "75.68% (28 / 9)",
     "Best Trade": "$349.20 (Long 15 /MNQ @ 29387.75, exited @ 29400, 10/27/2026 01:20:11)",
-    "Worst Trade": "-$415.80 (Long 15 /MNQ @ 29459.25, exited @ 29446, 10/27/2026 03:02:21)",
+    "Worst Trade": "-$497.20 (Long 10 /MNQ @ 29874.5, exited @ 29850.25, 10/28/2026 06:43:25)",
     "Most Active Day": "Tuesday (1 active days, 33 total trades, 33.00 avg trades/day)",
-    "Most Profitable Day": "Monday (-$1,010.70)",
+    "Most Profitable Day": "Tuesday (-$992.28)",
     "Least Profitable Day": "Monday (-$1,010.70)",
-    "Monthly P/L": "-$1,010.70 (Oct 2026)"
+    "Monthly P/L": "-$2,002.98 (Oct 2026)"
    },
    "raw_responses": {
     "User/currentTimeUtc": [
      {
       "method": "GET",
       "request": null,
-      "response": "2026-10-27T21:31:20.5344209+00:00"
+      "response": "2026-10-29T21:39:36.5322014+00:00"
      }
     ],
     "UserContract/all": [
@@ -462,34 +462,6 @@
         "maturityMonthYear": "Q26",
         "shortName": "MXLQ26",
         "active": false,
-        "available": true
-       },
-       {
-        "productId": "F.US.GMET",
-        "productName": "/MET",
-        "contractId": "CON.F.US.GMET.V26",
-        "contractName": "METV26",
-        "tickValue": 0.05,
-        "tickSize": 0.5,
-        "pointValue": 0.1,
-        "exchangeFee": 0.1,
-        "regulatoryFee": 0.01,
-        "commissionFee": 0.25,
-        "totalFees": 0.11,
-        "simOrderMargin": null,
-        "description": "Micro Ether",
-        "disabled": false,
-        "decimalPlaces": 1,
-        "priceScale": 10.0,
-        "minMove": 5.0,
-        "fractionalPrice": false,
-        "exchange": "CME",
-        "minMove2": 0.0,
-        "isProfessional": false,
-        "expiration": "2026-10-30T16:00:00+00:00",
-        "maturityMonthYear": "V26",
-        "shortName": "GMETV26",
-        "active": true,
         "available": true
        },
        {
@@ -1025,6 +997,34 @@
         "available": true
        },
        {
+        "productId": "F.US.MBT",
+        "productName": "/MBT",
+        "contractId": "CON.F.US.MBT.V26",
+        "contractName": "MBTV26",
+        "tickValue": 0.5,
+        "tickSize": 5,
+        "pointValue": 0.1,
+        "exchangeFee": 1.15,
+        "regulatoryFee": 0.01,
+        "commissionFee": 0.25,
+        "totalFees": 1.16,
+        "simOrderMargin": null,
+        "description": "Micro Bitcoin",
+        "disabled": false,
+        "decimalPlaces": 0,
+        "priceScale": 1.0,
+        "minMove": 5.0,
+        "fractionalPrice": false,
+        "exchange": "CME",
+        "minMove2": 0.0,
+        "isProfessional": false,
+        "expiration": "2026-10-30T16:00:00+00:00",
+        "maturityMonthYear": "V26",
+        "shortName": "MBTV26",
+        "active": false,
+        "available": true
+       },
+       {
         "productId": "F.US.YM",
         "productName": "/YM",
         "contractId": "CON.F.US.YM.M26",
@@ -1274,34 +1274,6 @@
         "maturityMonthYear": "U26",
         "shortName": "MESU26",
         "active": false,
-        "available": true
-       },
-       {
-        "productId": "F.US.MBT",
-        "productName": "/MBT",
-        "contractId": "CON.F.US.MBT.V26",
-        "contractName": "MBTV26",
-        "tickValue": 0.5,
-        "tickSize": 5,
-        "pointValue": 0.1,
-        "exchangeFee": 1.15,
-        "regulatoryFee": 0.01,
-        "commissionFee": 0.25,
-        "totalFees": 1.16,
-        "simOrderMargin": null,
-        "description": "Micro Bitcoin",
-        "disabled": false,
-        "decimalPlaces": 0,
-        "priceScale": 1.0,
-        "minMove": 5.0,
-        "fractionalPrice": false,
-        "exchange": "CME",
-        "minMove2": 0.0,
-        "isProfessional": false,
-        "expiration": "2026-10-30T16:00:00+00:00",
-        "maturityMonthYear": "V26",
-        "shortName": "MBTV26",
-        "active": true,
         "available": true
        },
        {
@@ -1977,30 +1949,198 @@
         "available": true
        },
        {
-        "productId": "F.US.BR6",
-        "productName": "/6L",
-        "contractId": "CON.F.US.BR6.X26",
-        "contractName": "6LX26",
-        "tickValue": 5,
-        "tickSize": 5e-05,
-        "pointValue": 100000.0,
-        "exchangeFee": 1.6,
+        "productId": "F.US.GMET",
+        "productName": "/MET",
+        "contractId": "CON.F.US.GMET.V26",
+        "contractName": "METV26",
+        "tickValue": 0.05,
+        "tickSize": 0.5,
+        "pointValue": 0.1,
+        "exchangeFee": 0.1,
         "regulatoryFee": 0.01,
-        "commissionFee": 0.5,
-        "totalFees": 1.61,
+        "commissionFee": 0.25,
+        "totalFees": 0.11,
         "simOrderMargin": null,
-        "description": "Brazilian Real",
-        "disabled": true,
-        "decimalPlaces": 5,
-        "priceScale": 100000.0,
+        "description": "Micro Ether",
+        "disabled": false,
+        "decimalPlaces": 1,
+        "priceScale": 10.0,
         "minMove": 5.0,
         "fractionalPrice": false,
         "exchange": "CME",
         "minMove2": 0.0,
         "isProfessional": false,
-        "expiration": "2026-10-30T14:15:00+00:00",
+        "expiration": "2026-10-30T16:00:00+00:00",
+        "maturityMonthYear": "V26",
+        "shortName": "GMETV26",
+        "active": false,
+        "available": true
+       },
+       {
+        "productId": "F.US.GMET",
+        "productName": "/MET",
+        "contractId": "CON.F.US.GMET.X26",
+        "contractName": "METX26",
+        "tickValue": 0.05,
+        "tickSize": 0.5,
+        "pointValue": 0.1,
+        "exchangeFee": 0.1,
+        "regulatoryFee": 0.01,
+        "commissionFee": 0.25,
+        "totalFees": 0.11,
+        "simOrderMargin": null,
+        "description": "Micro Ether",
+        "disabled": false,
+        "decimalPlaces": 1,
+        "priceScale": 10.0,
+        "minMove": 5.0,
+        "fractionalPrice": false,
+        "exchange": "CME",
+        "minMove2": 0.0,
+        "isProfessional": false,
+        "expiration": "2026-11-27T16:00:00+00:00",
         "maturityMonthYear": "X26",
-        "shortName": "BR6X26",
+        "shortName": "GMETX26",
+        "active": true,
+        "available": true
+       },
+       {
+        "productId": "F.US.MBT",
+        "productName": "/MBT",
+        "contractId": "CON.F.US.MBT.X26",
+        "contractName": "MBTX26",
+        "tickValue": 0.5,
+        "tickSize": 5,
+        "pointValue": 0.1,
+        "exchangeFee": 1.15,
+        "regulatoryFee": 0.01,
+        "commissionFee": 0.25,
+        "totalFees": 1.16,
+        "simOrderMargin": null,
+        "description": "Micro Bitcoin",
+        "disabled": false,
+        "decimalPlaces": 0,
+        "priceScale": 1.0,
+        "minMove": 5.0,
+        "fractionalPrice": false,
+        "exchange": "CME",
+        "minMove2": 0.0,
+        "isProfessional": false,
+        "expiration": "2026-11-27T16:00:00+00:00",
+        "maturityMonthYear": "X26",
+        "shortName": "MBTX26",
+        "active": true,
+        "available": true
+       },
+       {
+        "productId": "F.US.MSL",
+        "productName": "/MSL",
+        "contractId": "CON.F.US.MSL.V26",
+        "contractName": "MSLV26",
+        "tickValue": 1.25,
+        "tickSize": 0.05,
+        "pointValue": 25.0,
+        "exchangeFee": 1.15,
+        "regulatoryFee": 0.01,
+        "commissionFee": 0.25,
+        "totalFees": 1.16,
+        "simOrderMargin": null,
+        "description": "Micro Solana",
+        "disabled": true,
+        "decimalPlaces": 2,
+        "priceScale": 100.0,
+        "minMove": 25.0,
+        "fractionalPrice": false,
+        "exchange": "CME",
+        "minMove2": 0.0,
+        "isProfessional": false,
+        "expiration": "2026-10-30T16:00:00+00:00",
+        "maturityMonthYear": "V26",
+        "shortName": "MSLV26",
+        "active": false,
+        "available": true
+       },
+       {
+        "productId": "F.US.MSL",
+        "productName": "/MSL",
+        "contractId": "CON.F.US.MSL.X26",
+        "contractName": "MSLX26",
+        "tickValue": 1.25,
+        "tickSize": 0.05,
+        "pointValue": 25.0,
+        "exchangeFee": 1.15,
+        "regulatoryFee": 0.01,
+        "commissionFee": 0.25,
+        "totalFees": 1.16,
+        "simOrderMargin": null,
+        "description": "Micro Solana",
+        "disabled": true,
+        "decimalPlaces": 2,
+        "priceScale": 100.0,
+        "minMove": 25.0,
+        "fractionalPrice": false,
+        "exchange": "CME",
+        "minMove2": 0.0,
+        "isProfessional": false,
+        "expiration": "2026-11-27T16:00:00+00:00",
+        "maturityMonthYear": "X26",
+        "shortName": "MSLX26",
+        "active": true,
+        "available": true
+       },
+       {
+        "productId": "F.US.MXL",
+        "productName": "/MXL",
+        "contractId": "CON.F.US.MXL.V26",
+        "contractName": "MXLV26",
+        "tickValue": 1.25,
+        "tickSize": 0.0001,
+        "pointValue": 12500.0,
+        "exchangeFee": 1.15,
+        "regulatoryFee": 0.01,
+        "commissionFee": 0.25,
+        "totalFees": 1.16,
+        "simOrderMargin": null,
+        "description": "Micro Stellar",
+        "disabled": true,
+        "decimalPlaces": 4,
+        "priceScale": 10000.0,
+        "minMove": 1.0,
+        "fractionalPrice": false,
+        "exchange": "CME",
+        "minMove2": 0.0,
+        "isProfessional": false,
+        "expiration": "2026-10-30T16:00:00+00:00",
+        "maturityMonthYear": "V26",
+        "shortName": "MXLV26",
+        "active": false,
+        "available": true
+       },
+       {
+        "productId": "F.US.MXL",
+        "productName": "/MXL",
+        "contractId": "CON.F.US.MXL.X26",
+        "contractName": "MXLX26",
+        "tickValue": 1.25,
+        "tickSize": 0.0001,
+        "pointValue": 12500.0,
+        "exchangeFee": 1.15,
+        "regulatoryFee": 0.01,
+        "commissionFee": 0.25,
+        "totalFees": 1.16,
+        "simOrderMargin": null,
+        "description": "Micro Stellar",
+        "disabled": true,
+        "decimalPlaces": 4,
+        "priceScale": 10000.0,
+        "minMove": 1.0,
+        "fractionalPrice": false,
+        "exchange": "CME",
+        "minMove2": 0.0,
+        "isProfessional": false,
+        "expiration": "2026-11-27T16:00:00+00:00",
+        "maturityMonthYear": "X26",
+        "shortName": "MXLX26",
         "active": true,
         "available": true
        },
@@ -2085,6 +2225,34 @@
         "expiration": "2026-09-21T18:30:00+00:00",
         "maturityMonthYear": "V26",
         "shortName": "NQMV26",
+        "active": false,
+        "available": true
+       },
+       {
+        "productId": "F.US.BR6",
+        "productName": "/6L",
+        "contractId": "CON.F.US.BR6.X26",
+        "contractName": "6LX26",
+        "tickValue": 5,
+        "tickSize": 5e-05,
+        "pointValue": 100000.0,
+        "exchangeFee": 1.6,
+        "regulatoryFee": 0.01,
+        "commissionFee": 0.5,
+        "totalFees": 1.61,
+        "simOrderMargin": null,
+        "description": "Brazilian Real",
+        "disabled": true,
+        "decimalPlaces": 5,
+        "priceScale": 100000.0,
+        "minMove": 5.0,
+        "fractionalPrice": false,
+        "exchange": "CME",
+        "minMove2": 0.0,
+        "isProfessional": false,
+        "expiration": "2026-10-30T14:15:00+00:00",
+        "maturityMonthYear": "X26",
+        "shortName": "BR6X26",
         "active": false,
         "available": true
        },
@@ -2425,6 +2593,34 @@
         "available": true
        },
        {
+        "productId": "F.US.BR6",
+        "productName": "/6L",
+        "contractId": "CON.F.US.BR6.Z26",
+        "contractName": "6LZ26",
+        "tickValue": 5,
+        "tickSize": 5e-05,
+        "pointValue": 100000.0,
+        "exchangeFee": 1.6,
+        "regulatoryFee": 0.01,
+        "commissionFee": 0.5,
+        "totalFees": 1.61,
+        "simOrderMargin": null,
+        "description": "Brazilian Real",
+        "disabled": true,
+        "decimalPlaces": 5,
+        "priceScale": 100000.0,
+        "minMove": 5.0,
+        "fractionalPrice": false,
+        "exchange": "CME",
+        "minMove2": 0.0,
+        "isProfessional": false,
+        "expiration": "2026-11-30T15:15:00+00:00",
+        "maturityMonthYear": "Z26",
+        "shortName": "BR6Z26",
+        "active": true,
+        "available": true
+       },
+       {
         "productId": "F.US.GMCD",
         "productName": "/MCD",
         "contractId": "CON.F.US.GMCD.Z26",
@@ -2509,90 +2705,6 @@
         "available": true
        },
        {
-        "productId": "F.US.MSL",
-        "productName": "/MSL",
-        "contractId": "CON.F.US.MSL.V26",
-        "contractName": "MSLV26",
-        "tickValue": 1.25,
-        "tickSize": 0.05,
-        "pointValue": 25.0,
-        "exchangeFee": 1.15,
-        "regulatoryFee": 0.01,
-        "commissionFee": 0.25,
-        "totalFees": 1.16,
-        "simOrderMargin": null,
-        "description": "Micro Solana",
-        "disabled": true,
-        "decimalPlaces": 2,
-        "priceScale": 100.0,
-        "minMove": 25.0,
-        "fractionalPrice": false,
-        "exchange": "CME",
-        "minMove2": 0.0,
-        "isProfessional": false,
-        "expiration": "2026-10-30T16:00:00+00:00",
-        "maturityMonthYear": "V26",
-        "shortName": "MSLV26",
-        "active": true,
-        "available": true
-       },
-       {
-        "productId": "F.US.GMXP",
-        "productName": "/MXP",
-        "contractId": "CON.F.US.GMXP.V26",
-        "contractName": "MXPV26",
-        "tickValue": 1.25,
-        "tickSize": 0.0005,
-        "pointValue": 2500.0,
-        "exchangeFee": 1.15,
-        "regulatoryFee": 0.01,
-        "commissionFee": 0.25,
-        "totalFees": 1.16,
-        "simOrderMargin": null,
-        "description": "Micro XRP",
-        "disabled": true,
-        "decimalPlaces": 4,
-        "priceScale": 10000.0,
-        "minMove": 5.0,
-        "fractionalPrice": false,
-        "exchange": "CME",
-        "minMove2": 0.0,
-        "isProfessional": false,
-        "expiration": "2026-10-30T16:00:00+00:00",
-        "maturityMonthYear": "V26",
-        "shortName": "GMXPV26",
-        "active": true,
-        "available": true
-       },
-       {
-        "productId": "F.US.MLN",
-        "productName": "/MLN",
-        "contractId": "CON.F.US.MLN.V26",
-        "contractName": "MLNV26",
-        "tickValue": 1.25,
-        "tickSize": 0.005,
-        "pointValue": 250.0,
-        "exchangeFee": 1.15,
-        "regulatoryFee": 0.01,
-        "commissionFee": 0.25,
-        "totalFees": 1.16,
-        "simOrderMargin": null,
-        "description": "Micro Chainlink",
-        "disabled": true,
-        "decimalPlaces": 3,
-        "priceScale": 1000.0,
-        "minMove": 5.0,
-        "fractionalPrice": false,
-        "exchange": "CME",
-        "minMove2": 0.0,
-        "isProfessional": false,
-        "expiration": "2026-10-30T16:00:00+00:00",
-        "maturityMonthYear": "V26",
-        "shortName": "MLNV26",
-        "active": true,
-        "available": true
-       },
-       {
         "productId": "F.US.BR6",
         "productName": "/6L",
         "contractId": "CON.F.US.BR6.V26",
@@ -2651,6 +2763,34 @@
        {
         "productId": "F.US.GMXP",
         "productName": "/MXP",
+        "contractId": "CON.F.US.GMXP.V26",
+        "contractName": "MXPV26",
+        "tickValue": 1.25,
+        "tickSize": 0.0005,
+        "pointValue": 2500.0,
+        "exchangeFee": 1.15,
+        "regulatoryFee": 0.01,
+        "commissionFee": 0.25,
+        "totalFees": 1.16,
+        "simOrderMargin": null,
+        "description": "Micro XRP",
+        "disabled": true,
+        "decimalPlaces": 4,
+        "priceScale": 10000.0,
+        "minMove": 5.0,
+        "fractionalPrice": false,
+        "exchange": "CME",
+        "minMove2": 0.0,
+        "isProfessional": false,
+        "expiration": "2026-10-30T16:00:00+00:00",
+        "maturityMonthYear": "V26",
+        "shortName": "GMXPV26",
+        "active": false,
+        "available": true
+       },
+       {
+        "productId": "F.US.GMXP",
+        "productName": "/MXP",
         "contractId": "CON.F.US.GMXP.Q26",
         "contractName": "MXPQ26",
         "tickValue": 1.25,
@@ -2674,6 +2814,90 @@
         "maturityMonthYear": "Q26",
         "shortName": "GMXPQ26",
         "active": false,
+        "available": true
+       },
+       {
+        "productId": "F.US.GMXP",
+        "productName": "/MXP",
+        "contractId": "CON.F.US.GMXP.X26",
+        "contractName": "MXPX26",
+        "tickValue": 1.25,
+        "tickSize": 0.0005,
+        "pointValue": 2500.0,
+        "exchangeFee": 1.15,
+        "regulatoryFee": 0.01,
+        "commissionFee": 0.25,
+        "totalFees": 1.16,
+        "simOrderMargin": null,
+        "description": "Micro XRP",
+        "disabled": true,
+        "decimalPlaces": 4,
+        "priceScale": 10000.0,
+        "minMove": 5.0,
+        "fractionalPrice": false,
+        "exchange": "CME",
+        "minMove2": 0.0,
+        "isProfessional": false,
+        "expiration": "2026-11-27T16:00:00+00:00",
+        "maturityMonthYear": "X26",
+        "shortName": "GMXPX26",
+        "active": true,
+        "available": true
+       },
+       {
+        "productId": "F.US.MLN",
+        "productName": "/MLN",
+        "contractId": "CON.F.US.MLN.V26",
+        "contractName": "MLNV26",
+        "tickValue": 1.25,
+        "tickSize": 0.005,
+        "pointValue": 250.0,
+        "exchangeFee": 1.15,
+        "regulatoryFee": 0.01,
+        "commissionFee": 0.25,
+        "totalFees": 1.16,
+        "simOrderMargin": null,
+        "description": "Micro Chainlink",
+        "disabled": true,
+        "decimalPlaces": 3,
+        "priceScale": 1000.0,
+        "minMove": 5.0,
+        "fractionalPrice": false,
+        "exchange": "CME",
+        "minMove2": 0.0,
+        "isProfessional": false,
+        "expiration": "2026-10-30T16:00:00+00:00",
+        "maturityMonthYear": "V26",
+        "shortName": "MLNV26",
+        "active": false,
+        "available": true
+       },
+       {
+        "productId": "F.US.MLN",
+        "productName": "/MLN",
+        "contractId": "CON.F.US.MLN.X26",
+        "contractName": "MLNX26",
+        "tickValue": 1.25,
+        "tickSize": 0.005,
+        "pointValue": 250.0,
+        "exchangeFee": 1.15,
+        "regulatoryFee": 0.01,
+        "commissionFee": 0.25,
+        "totalFees": 1.16,
+        "simOrderMargin": null,
+        "description": "Micro Chainlink",
+        "disabled": true,
+        "decimalPlaces": 3,
+        "priceScale": 1000.0,
+        "minMove": 5.0,
+        "fractionalPrice": false,
+        "exchange": "CME",
+        "minMove2": 0.0,
+        "isProfessional": false,
+        "expiration": "2026-11-27T16:00:00+00:00",
+        "maturityMonthYear": "X26",
+        "shortName": "MLNX26",
+        "active": true,
         "available": true
        },
        {
@@ -2705,34 +2929,6 @@
         "available": true
        },
        {
-        "productId": "F.US.MXL",
-        "productName": "/MXL",
-        "contractId": "CON.F.US.MXL.V26",
-        "contractName": "MXLV26",
-        "tickValue": 1.25,
-        "tickSize": 0.0001,
-        "pointValue": 12500.0,
-        "exchangeFee": 1.15,
-        "regulatoryFee": 0.01,
-        "commissionFee": 0.25,
-        "totalFees": 1.16,
-        "simOrderMargin": null,
-        "description": "Micro Stellar",
-        "disabled": true,
-        "decimalPlaces": 4,
-        "priceScale": 10000.0,
-        "minMove": 1.0,
-        "fractionalPrice": false,
-        "exchange": "CME",
-        "minMove2": 0.0,
-        "isProfessional": false,
-        "expiration": "2026-10-30T16:00:00+00:00",
-        "maturityMonthYear": "V26",
-        "shortName": "MXLV26",
-        "active": true,
-        "available": true
-       },
-       {
         "productId": "F.US.GMCA",
         "productName": "/MCA",
         "contractId": "CON.F.US.GMCA.V26",
@@ -2757,7 +2953,7 @@
         "expiration": "2026-10-30T16:00:00+00:00",
         "maturityMonthYear": "V26",
         "shortName": "GMCAV26",
-        "active": true,
+        "active": false,
         "available": true
        },
        {
@@ -2813,6 +3009,34 @@
         "expiration": "2026-11-25T18:30:00+00:00",
         "maturityMonthYear": "Z26",
         "shortName": "MQOZ26",
+        "active": true,
+        "available": true
+       },
+       {
+        "productId": "F.US.GMCA",
+        "productName": "/MCA",
+        "contractId": "CON.F.US.GMCA.X26",
+        "contractName": "MCAX26",
+        "tickValue": 1.25,
+        "tickSize": 0.000125,
+        "pointValue": 10000.0,
+        "exchangeFee": 1.15,
+        "regulatoryFee": 0.01,
+        "commissionFee": 0.25,
+        "totalFees": 1.16,
+        "simOrderMargin": null,
+        "description": "Micro Cardano",
+        "disabled": true,
+        "decimalPlaces": 6,
+        "priceScale": 1000000.0,
+        "minMove": 125.0,
+        "fractionalPrice": false,
+        "exchange": "CME",
+        "minMove2": 0.0,
+        "isProfessional": false,
+        "expiration": "2026-11-27T16:00:00+00:00",
+        "maturityMonthYear": "X26",
+        "shortName": "GMCAX26",
         "active": true,
         "available": true
        },
@@ -2873,34 +3097,6 @@
         "available": true
        },
        {
-        "productId": "F.US.Z10Y",
-        "productName": "/10Y",
-        "contractId": "CON.F.US.Z10Y.V26",
-        "contractName": "10YV26",
-        "tickValue": 1,
-        "tickSize": 0.001,
-        "pointValue": 1000.0,
-        "exchangeFee": 0.3,
-        "regulatoryFee": 0.01,
-        "commissionFee": 0.25,
-        "totalFees": 0.31,
-        "simOrderMargin": null,
-        "description": "Micro 10-Year Yield",
-        "disabled": true,
-        "decimalPlaces": 3,
-        "priceScale": 1000.0,
-        "minMove": 1.0,
-        "fractionalPrice": false,
-        "exchange": "CBOT",
-        "minMove2": 0.0,
-        "isProfessional": false,
-        "expiration": "2026-10-30T19:00:00+00:00",
-        "maturityMonthYear": "V26",
-        "shortName": "Z10YV26",
-        "active": true,
-        "available": true
-       },
-       {
         "productId": "F.US.MLN",
         "productName": "/MLN",
         "contractId": "CON.F.US.MLN.U26",
@@ -2926,6 +3122,62 @@
         "maturityMonthYear": "U26",
         "shortName": "MLNU26",
         "active": false,
+        "available": true
+       },
+       {
+        "productId": "F.US.Z10Y",
+        "productName": "/10Y",
+        "contractId": "CON.F.US.Z10Y.V26",
+        "contractName": "10YV26",
+        "tickValue": 1,
+        "tickSize": 0.001,
+        "pointValue": 1000.0,
+        "exchangeFee": 0.3,
+        "regulatoryFee": 0.01,
+        "commissionFee": 0.25,
+        "totalFees": 0.31,
+        "simOrderMargin": null,
+        "description": "Micro 10-Year Yield",
+        "disabled": true,
+        "decimalPlaces": 3,
+        "priceScale": 1000.0,
+        "minMove": 1.0,
+        "fractionalPrice": false,
+        "exchange": "CBOT",
+        "minMove2": 0.0,
+        "isProfessional": false,
+        "expiration": "2026-10-30T19:00:00+00:00",
+        "maturityMonthYear": "V26",
+        "shortName": "Z10YV26",
+        "active": false,
+        "available": true
+       },
+       {
+        "productId": "F.US.Z10Y",
+        "productName": "/10Y",
+        "contractId": "CON.F.US.Z10Y.X26",
+        "contractName": "10YX26",
+        "tickValue": 1,
+        "tickSize": 0.001,
+        "pointValue": 1000.0,
+        "exchangeFee": 0.3,
+        "regulatoryFee": 0.01,
+        "commissionFee": 0.25,
+        "totalFees": 0.31,
+        "simOrderMargin": null,
+        "description": "Micro 10-Year Yield",
+        "disabled": true,
+        "decimalPlaces": 3,
+        "priceScale": 1000.0,
+        "minMove": 1.0,
+        "fractionalPrice": false,
+        "exchange": "CBOT",
+        "minMove2": 0.0,
+        "isProfessional": false,
+        "expiration": "2026-11-30T20:00:00+00:00",
+        "maturityMonthYear": "X26",
+        "shortName": "Z10YX26",
+        "active": true,
         "available": true
        },
        {
@@ -8941,28 +9193,7 @@
      {
       "method": "POST",
       "request": null,
-      "response": [
-       {
-        "tradeDay": "2026-10-27T05:00:00+00:00",
-        "balance": -1010.7,
-        "products": [
-         {
-          "tradeDay": "2026-10-27T05:00:00+00:00",
-          "symbolId": "F.US.MNQ",
-          "totalTradedContracts": 870
-         }
-        ],
-        "tradeDate": "0001-01-01T00:00:00+00:00",
-        "totalPnL": -480.0,
-        "totalTrades": 33,
-        "winningTrades": 16,
-        "losingTrades": 17,
-        "neutralTrades": 0,
-        "winRate": 0.48484848484848486,
-        "totalFees": 313.2,
-        "totalCommissions": 217.5
-       }
-      ]
+      "response": []
      }
     ],
     "JournalLog/getForRange": [
@@ -8970,8 +9201,8 @@
       "method": "POST",
       "request": {
        "tradingAccountId": 29039130,
-       "startDate": "2026-09-26T05:00:00.000Z",
-       "endDate": "2026-10-29T04:59:59.999Z"
+       "startDate": "2026-09-28T05:00:00.000Z",
+       "endDate": "2026-10-31T04:59:59.999Z"
       },
       "response": []
      },
@@ -8985,27 +9216,13 @@
       "response": []
      }
     ],
-    "Statistics/winlossavg": [
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29039130,
-       "startTradeDay": "2026-09-27T05:00:00.000Z",
-       "endTradeDay": "2026-10-28T04:59:59.999Z"
-      },
-      "response": {
-       "averageWin": 127.025,
-       "averageLoss": -179.00588235294117
-      }
-     }
-    ],
     "Statistics/daystats": [
      {
       "method": "POST",
       "request": {
        "tradingAccountId": 29039130,
-       "startTradeDay": "2026-09-27T05:00:00.000Z",
-       "endTradeDay": "2026-10-28T04:59:59.999Z"
+       "startTradeDay": "2026-09-29T05:00:00.000Z",
+       "endTradeDay": "2026-10-30T04:59:59.999Z"
       },
       "response": [
        {
@@ -9018,6 +9235,17 @@
         "winRate": 0.48484848484848486,
         "totalFees": 313.2,
         "totalCommissions": 217.5
+       },
+       {
+        "tradeDate": "2026-10-28T05:00:00+00:00",
+        "totalPnL": -963.0,
+        "totalTrades": 4,
+        "winningTrades": 0,
+        "losingTrades": 4,
+        "neutralTrades": 0,
+        "winRate": 0,
+        "totalFees": 17.28,
+        "totalCommissions": 12.0
        }
       ]
      },
@@ -9039,6 +9267,17 @@
         "winRate": 0.48484848484848486,
         "totalFees": 313.2,
         "totalCommissions": 217.5
+       },
+       {
+        "tradeDate": "2026-10-28T05:00:00+00:00",
+        "totalPnL": -963.0,
+        "totalTrades": 4,
+        "winningTrades": 0,
+        "losingTrades": 4,
+        "neutralTrades": 0,
+        "winRate": 0,
+        "totalFees": 17.28,
+        "totalCommissions": 12.0
        }
       ]
      }
@@ -9048,12 +9287,26 @@
       "method": "POST",
       "request": {
        "tradingAccountId": 29039130,
-       "startTradeDay": "2026-09-27T05:00:00.000Z",
-       "endTradeDay": "2026-10-28T04:59:59.999Z"
+       "startTradeDay": "2026-09-29T05:00:00.000Z",
+       "endTradeDay": "2026-10-30T04:59:59.999Z"
       },
       "response": {
        "totalProfit": 2032.4,
-       "totalLoss": -3043.1
+       "totalLoss": -4035.38
+      }
+     }
+    ],
+    "Statistics/winlossavg": [
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29039130,
+       "startTradeDay": "2026-09-29T05:00:00.000Z",
+       "endTradeDay": "2026-10-30T04:59:59.999Z"
+      },
+      "response": {
+       "averageWin": 127.025,
+       "averageLoss": -192.16095238095238
       }
      }
     ],
@@ -9074,23 +9327,48 @@
         "winRate": 0.48484848484848486,
         "totalFees": 313.2,
         "totalCommissions": 217.5
+       },
+       {
+        "tradeDate": "2026-10-28T05:00:00+00:00",
+        "totalPnL": -963.0,
+        "totalTrades": 4,
+        "winningTrades": 0,
+        "losingTrades": 4,
+        "neutralTrades": 0,
+        "winRate": 0,
+        "totalFees": 17.28,
+        "totalCommissions": 12.0
        }
       ]
      }
     ],
-    "Statistics/daily": [
+    "Statistics/weekly": [
      {
       "method": "POST",
       "request": {
        "tradingAccountId": 29039130,
-       "startTradeDay": "2026-09-27T05:00:00.000Z",
-       "endTradeDay": "2026-10-28T04:59:59.999Z"
+       "startTradeDay": "2026-09-27T07:00:00.000Z",
+       "endTradeDay": "2026-10-04T06:59:59.999Z"
+      },
+      "response": []
+     },
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29039130,
+       "startTradeDay": "2026-10-25T07:00:00.000Z",
+       "endTradeDay": "2026-11-01T06:59:59.999Z"
       },
       "response": [
        {
-        "tradeDay": "2026-10-27T05:00:00+00:00",
-        "balance": -1010.7,
+        "tradeDay": "2026-10-26T05:00:00+00:00",
+        "balance": -2002.98,
         "products": [
+         {
+          "tradeDay": "2026-10-28T05:00:00+00:00",
+          "symbolId": "F.US.MNQ",
+          "totalTradedContracts": 48
+         },
          {
           "tradeDay": "2026-10-27T05:00:00+00:00",
           "symbolId": "F.US.MNQ",
@@ -9098,19 +9376,17 @@
          }
         ],
         "tradeDate": "0001-01-01T00:00:00+00:00",
-        "totalPnL": -480.0,
-        "totalTrades": 33,
+        "totalPnL": -1443.0,
+        "totalTrades": 37,
         "winningTrades": 16,
-        "losingTrades": 17,
+        "losingTrades": 21,
         "neutralTrades": 0,
-        "winRate": 0.48484848484848486,
-        "totalFees": 313.2,
-        "totalCommissions": 217.5
+        "winRate": 0.43243243243243246,
+        "totalFees": 330.48,
+        "totalCommissions": 229.5
        }
       ]
-     }
-    ],
-    "Statistics/weekly": [
+     },
      {
       "method": "POST",
       "request": {
@@ -9133,45 +9409,6 @@
       "method": "POST",
       "request": {
        "tradingAccountId": 29039130,
-       "startTradeDay": "2026-10-25T07:00:00.000Z",
-       "endTradeDay": "2026-11-01T06:59:59.999Z"
-      },
-      "response": [
-       {
-        "tradeDay": "2026-10-26T05:00:00+00:00",
-        "balance": -1010.7,
-        "products": [
-         {
-          "tradeDay": "2026-10-27T05:00:00+00:00",
-          "symbolId": "F.US.MNQ",
-          "totalTradedContracts": 870
-         }
-        ],
-        "tradeDate": "0001-01-01T00:00:00+00:00",
-        "totalPnL": -480.0,
-        "totalTrades": 33,
-        "winningTrades": 16,
-        "losingTrades": 17,
-        "neutralTrades": 0,
-        "winRate": 0.48484848484848486,
-        "totalFees": 313.2,
-        "totalCommissions": 217.5
-       }
-      ]
-     },
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29039130,
-       "startTradeDay": "2026-10-04T07:00:00.000Z",
-       "endTradeDay": "2026-10-11T06:59:59.999Z"
-      },
-      "response": []
-     },
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29039130,
        "startTradeDay": "2026-10-18T07:00:00.000Z",
        "endTradeDay": "2026-10-25T06:59:59.999Z"
       },
@@ -9181,8 +9418,8 @@
       "method": "POST",
       "request": {
        "tradingAccountId": 29039130,
-       "startTradeDay": "2026-09-27T07:00:00.000Z",
-       "endTradeDay": "2026-10-04T06:59:59.999Z"
+       "startTradeDay": "2026-10-04T07:00:00.000Z",
+       "endTradeDay": "2026-10-11T06:59:59.999Z"
       },
       "response": []
      }
@@ -9198,6 +9435,43 @@
       "response": [
        {
         "tradeDay": "2026-10-01T00:00:00-05:00",
+        "balance": -2002.98,
+        "products": [
+         {
+          "tradeDay": "2026-10-27T05:00:00+00:00",
+          "symbolId": "F.US.MNQ",
+          "totalTradedContracts": 870
+         },
+         {
+          "tradeDay": "2026-10-28T05:00:00+00:00",
+          "symbolId": "F.US.MNQ",
+          "totalTradedContracts": 48
+         }
+        ],
+        "tradeDate": "0001-01-01T00:00:00+00:00",
+        "totalPnL": -1443.0,
+        "totalTrades": 37,
+        "winningTrades": 16,
+        "losingTrades": 21,
+        "neutralTrades": 0,
+        "winRate": 0.43243243243243246,
+        "totalFees": 330.48,
+        "totalCommissions": 229.5
+       }
+      ]
+     }
+    ],
+    "Statistics/daily": [
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29039130,
+       "startTradeDay": "2026-09-29T05:00:00.000Z",
+       "endTradeDay": "2026-10-30T04:59:59.999Z"
+      },
+      "response": [
+       {
+        "tradeDay": "2026-10-27T05:00:00+00:00",
         "balance": -1010.7,
         "products": [
          {
@@ -9215,12 +9489,32 @@
         "winRate": 0.48484848484848486,
         "totalFees": 313.2,
         "totalCommissions": 217.5
+       },
+       {
+        "tradeDay": "2026-10-28T05:00:00+00:00",
+        "balance": -2002.98,
+        "products": [
+         {
+          "tradeDay": "2026-10-28T05:00:00+00:00",
+          "symbolId": "F.US.MNQ",
+          "totalTradedContracts": 48
+         }
+        ],
+        "tradeDate": "0001-01-01T00:00:00+00:00",
+        "totalPnL": -963.0,
+        "totalTrades": 4,
+        "winningTrades": 0,
+        "losingTrades": 4,
+        "neutralTrades": 0,
+        "winRate": 0,
+        "totalFees": 17.28,
+        "totalCommissions": 12.0
        }
       ]
      }
     ]
    },
-   "last_sync_pt": "2026-10-27 14:31:27 PDT"
+   "last_sync_pt": "2026-10-29 14:39:44 PDT"
   }
  ]
 }
