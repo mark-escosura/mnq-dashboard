@@ -7,9 +7,9 @@
    "topstepx_account_id": 29039130,
    "topstepx_account_name": "EXPRESS-V2-DLL-31941-61997534",
    "source_url": "https://www.topstepx.com/share/stats?share=29039130",
-   "fetched_at_pt": "2026-11-02 14:38:29 PST",
+   "fetched_at_pt": "2026-11-03 14:37:13 PST",
    "fetched_at_note": "Time reported by TopstepX User/currentTimeUtc during the fetch, converted to PT.",
-   "share_page_range_default": "10/03/2026 – 11/02/2026",
+   "share_page_range_default": "10/04/2026 – 11/03/2026",
    "notes": "Stats are verbatim JSON from the share page's own public XHRs (no login). In TopstepX's stats, 'totalPnL' is gross; the page's Total P&L ($37.80) is net of totalFees and totalCommissions. 'balance' in these responses is the period's net P&L, not the account balance; the page does not expose the account balance. Trades (20) were appended to journal.csv with import_keys topstepx:<id>.",
    "share_page_displayed": {
     "Total P&L": "-$2,002.98",
@@ -36,7 +36,7 @@
      {
       "method": "GET",
       "request": null,
-      "response": "2026-11-02T22:38:29.9201161+00:00"
+      "response": "2026-11-03T22:37:13.8116365+00:00"
      }
     ],
     "UserContract/all": [
@@ -11338,13 +11338,20 @@
       "response": true
      }
     ],
+    "Statistics/getAccountName?tradingAccountId=29039130": [
+     {
+      "method": "GET",
+      "request": null,
+      "response": "EXPRESS-V2-DLL-31941-61997534"
+     }
+    ],
     "JournalLog/getForRange": [
      {
       "method": "POST",
       "request": {
        "tradingAccountId": 29039130,
-       "startDate": "2026-10-02T05:00:00.000Z",
-       "endDate": "2026-11-04T05:59:59.999Z"
+       "startDate": "2026-10-03T05:00:00.000Z",
+       "endDate": "2026-11-05T05:59:59.999Z"
       },
       "response": []
      },
@@ -11358,27 +11365,13 @@
       "response": []
      }
     ],
-    "Statistics/profitFactor": [
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29039130,
-       "startTradeDay": "2026-10-03T05:00:00.000Z",
-       "endTradeDay": "2026-11-03T05:59:59.999Z"
-      },
-      "response": {
-       "totalProfit": 2032.4,
-       "totalLoss": -4035.38
-      }
-     }
-    ],
     "Statistics/daystats": [
      {
       "method": "POST",
       "request": {
        "tradingAccountId": 29039130,
-       "startTradeDay": "2026-10-03T05:00:00.000Z",
-       "endTradeDay": "2026-11-03T05:59:59.999Z"
+       "startTradeDay": "2026-10-04T05:00:00.000Z",
+       "endTradeDay": "2026-11-04T05:59:59.999Z"
       },
       "response": [
        {
@@ -11438,20 +11431,13 @@
       ]
      }
     ],
-    "Statistics/getAccountName?tradingAccountId=29039130": [
-     {
-      "method": "GET",
-      "request": null,
-      "response": "EXPRESS-V2-DLL-31941-61997534"
-     }
-    ],
     "Statistics/winlossavg": [
      {
       "method": "POST",
       "request": {
        "tradingAccountId": 29039130,
-       "startTradeDay": "2026-10-03T05:00:00.000Z",
-       "endTradeDay": "2026-11-03T05:59:59.999Z"
+       "startTradeDay": "2026-10-04T05:00:00.000Z",
+       "endTradeDay": "2026-11-04T05:59:59.999Z"
       },
       "response": {
        "averageWin": 127.025,
@@ -11459,11 +11445,18 @@
       }
      }
     ],
-    "Statistics/todaystats?accountId=29039130": [
+    "Statistics/profitFactor": [
      {
       "method": "POST",
-      "request": null,
-      "response": []
+      "request": {
+       "tradingAccountId": 29039130,
+       "startTradeDay": "2026-10-04T05:00:00.000Z",
+       "endTradeDay": "2026-11-04T05:59:59.999Z"
+      },
+      "response": {
+       "totalProfit": 2032.4,
+       "totalLoss": -4035.38
+      }
      }
     ],
     "Statistics/lifetimestats": [
@@ -11498,13 +11491,76 @@
       ]
      }
     ],
+    "Statistics/weekly": [
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29039130,
+       "startTradeDay": "2026-11-08T08:00:00.000Z",
+       "endTradeDay": "2026-11-15T07:59:59.999Z"
+      },
+      "response": []
+     },
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29039130,
+       "startTradeDay": "2026-11-01T07:00:00.000Z",
+       "endTradeDay": "2026-11-08T07:59:59.999Z"
+      },
+      "response": []
+     },
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29039130,
+       "startTradeDay": "2026-11-29T08:00:00.000Z",
+       "endTradeDay": "2026-12-06T07:59:59.999Z"
+      },
+      "response": []
+     },
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29039130,
+       "startTradeDay": "2026-11-15T08:00:00.000Z",
+       "endTradeDay": "2026-11-22T07:59:59.999Z"
+      },
+      "response": []
+     },
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29039130,
+       "startTradeDay": "2026-12-06T08:00:00.000Z",
+       "endTradeDay": "2026-12-13T07:59:59.999Z"
+      },
+      "response": []
+     },
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29039130,
+       "startTradeDay": "2026-11-22T08:00:00.000Z",
+       "endTradeDay": "2026-11-29T07:59:59.999Z"
+      },
+      "response": []
+     }
+    ],
+    "Statistics/todaystats?accountId=29039130": [
+     {
+      "method": "POST",
+      "request": null,
+      "response": []
+     }
+    ],
     "Statistics/daily": [
      {
       "method": "POST",
       "request": {
        "tradingAccountId": 29039130,
-       "startTradeDay": "2026-10-03T05:00:00.000Z",
-       "endTradeDay": "2026-11-03T05:59:59.999Z"
+       "startTradeDay": "2026-10-04T05:00:00.000Z",
+       "endTradeDay": "2026-11-04T05:59:59.999Z"
       },
       "response": [
        {
@@ -11550,62 +11606,6 @@
       ]
      }
     ],
-    "Statistics/weekly": [
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29039130,
-       "startTradeDay": "2026-11-01T07:00:00.000Z",
-       "endTradeDay": "2026-11-08T07:59:59.999Z"
-      },
-      "response": []
-     },
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29039130,
-       "startTradeDay": "2026-11-22T08:00:00.000Z",
-       "endTradeDay": "2026-11-29T07:59:59.999Z"
-      },
-      "response": []
-     },
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29039130,
-       "startTradeDay": "2026-12-06T08:00:00.000Z",
-       "endTradeDay": "2026-12-13T07:59:59.999Z"
-      },
-      "response": []
-     },
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29039130,
-       "startTradeDay": "2026-11-08T08:00:00.000Z",
-       "endTradeDay": "2026-11-15T07:59:59.999Z"
-      },
-      "response": []
-     },
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29039130,
-       "startTradeDay": "2026-11-15T08:00:00.000Z",
-       "endTradeDay": "2026-11-22T07:59:59.999Z"
-      },
-      "response": []
-     },
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29039130,
-       "startTradeDay": "2026-11-29T08:00:00.000Z",
-       "endTradeDay": "2026-12-06T07:59:59.999Z"
-      },
-      "response": []
-     }
-    ],
     "Statistics/monthly": [
      {
       "method": "POST",
@@ -11618,7 +11618,7 @@
      }
     ]
    },
-   "last_sync_pt": "2026-11-02 14:38:37 PST"
+   "last_sync_pt": "2026-11-03 14:37:21 PST"
   }
  ]
 }
