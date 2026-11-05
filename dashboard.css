@@ -269,3 +269,21 @@ body[data-view=set] .fab,body[data-view=set] .acctrow,body[data-view=set] #acctS
 .pay{position:relative;display:flex;justify-content:space-between;align-items:center;margin:8px 0 2px;padding:6px 10px;border-radius:10px;background:rgba(127,127,127,.12);overflow:hidden;font-size:13px}
 .pay i{position:absolute;left:0;top:0;bottom:0;background:rgba(34,197,94,.22);z-index:0}
 .pay span,.pay b{position:relative;z-index:1}
+
+/* Playbook (Tradezella-style) */
+:root{--bg:#0b0d12;--card:#141823;--card2:#1a1f2b;--line:#232838;--g:#22c55e;--r:#f87171;--b:#a78bfa}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}.brand h1{font-size:19px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bmark{flex:none;width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#8b5cf6,#22c55e);display:grid;place-items:center;font-weight:800;color:#fff}
+.hero{padding:16px}.hero .hl{color:var(--mut);font-size:12px}.hero .hn{font-size:38px;font-weight:800;margin:2px 0 10px;letter-spacing:-.02em}
+.hero .chips{display:flex;gap:8px;flex-wrap:wrap}.chip{background:var(--card2);border-radius:20px;padding:6px 11px;font-size:13px}.chip b{color:#fff}.chip.pay{background:#13301f;color:#86efac}
+body[data-view=dash] #kpis,body[data-view=dash] .eqcard,body[data-view=dash] #strats,body[data-view=dash] #strats~.sechead~*:not(#recent),body[data-view=dash] #viewDash>.sechead:first-of-type,body[data-view=dash] #acctSum,body[data-view=dash] .fab{display:none!important}
+body:not([data-view=dash]) #hero,body[data-view=set] #hero{display:none}
+#hero{display:block}body[data-view=trades] #hero,body[data-view=cal] #hero{display:none}
+.cday.has.win b{color:#4ade80}.cday.has.loss b{color:#fca5a5}
+@media (max-width:640px){
+  .cal{grid-template-columns:repeat(7,minmax(0,1fr)) minmax(0,1.15fr);gap:4px}.cwk{display:block}
+  .cday{min-height:0;aspect-ratio:1/1.15;padding:3px}.cday b{font-size:10px;margin:auto auto 0}.cday .dc{display:none}
+  .cweek{grid-column:auto;flex-direction:column;gap:1px;padding:3px;min-height:0;margin:0;align-items:center;background:#10131b;border:0}
+  .cweek b{font-size:10px}.cweek .dc,.cweek .wl{font-size:9px;margin:0}
+}
+body[data-view=dash] .strh{display:none!important}

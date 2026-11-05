@@ -11335,7 +11335,7 @@
      {
       "method": "GET",
       "request": null,
-      "response": "2026-11-05T07:03:29.3790868+00:00"
+      "response": "2026-11-05T07:28:06.4062887+00:00"
      }
     ],
     "Statistics/checkSharing?tradingAccountId=29401280": [
@@ -11350,6 +11350,13 @@
       "method": "GET",
       "request": null,
       "response": "EXPRESS-V2-DLL-31941-18210241"
+     }
+    ],
+    "Statistics/todaystats?accountId=29401280": [
+     {
+      "method": "POST",
+      "request": null,
+      "response": []
      }
     ],
     "JournalLog/getForRange": [
@@ -11368,6 +11375,26 @@
        "tradingAccountId": 29401280,
        "startDate": "2026-10-01T07:00:00.000Z",
        "endDate": "2027-01-01T07:59:59.999Z"
+      },
+      "response": []
+     }
+    ],
+    "Statistics/daystats": [
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29401280,
+       "startTradeDay": "2026-10-06T05:00:00.000Z",
+       "endTradeDay": "2026-11-06T05:59:59.999Z"
+      },
+      "response": []
+     },
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29401280,
+       "startTradeDay": "2026-10-01T07:00:00.000Z",
+       "endTradeDay": "2027-01-01T07:59:59.999Z"
       },
       "response": []
      }
@@ -11400,22 +11427,11 @@
       }
      }
     ],
-    "Statistics/daystats": [
+    "Statistics/lifetimestats": [
      {
       "method": "POST",
       "request": {
-       "tradingAccountId": 29401280,
-       "startTradeDay": "2026-10-06T05:00:00.000Z",
-       "endTradeDay": "2026-11-06T05:59:59.999Z"
-      },
-      "response": []
-     },
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29401280,
-       "startTradeDay": "2026-10-01T07:00:00.000Z",
-       "endTradeDay": "2027-01-01T07:59:59.999Z"
+       "tradingAccountId": 29401280
       },
       "response": []
      }
@@ -11443,8 +11459,17 @@
       "method": "POST",
       "request": {
        "tradingAccountId": 29401280,
-       "startTradeDay": "2026-12-06T08:00:00.000Z",
-       "endTradeDay": "2026-12-13T07:59:59.999Z"
+       "startTradeDay": "2026-11-29T08:00:00.000Z",
+       "endTradeDay": "2026-12-06T07:59:59.999Z"
+      },
+      "response": []
+     },
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29401280,
+       "startTradeDay": "2026-11-15T08:00:00.000Z",
+       "endTradeDay": "2026-11-22T07:59:59.999Z"
       },
       "response": []
      },
@@ -11461,25 +11486,9 @@
       "method": "POST",
       "request": {
        "tradingAccountId": 29401280,
-       "startTradeDay": "2026-11-29T08:00:00.000Z",
-       "endTradeDay": "2026-12-06T07:59:59.999Z"
+       "startTradeDay": "2026-12-06T08:00:00.000Z",
+       "endTradeDay": "2026-12-13T07:59:59.999Z"
       },
-      "response": []
-     },
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29401280,
-       "startTradeDay": "2026-11-15T08:00:00.000Z",
-       "endTradeDay": "2026-11-22T07:59:59.999Z"
-      },
-      "response": []
-     }
-    ],
-    "Statistics/todaystats?accountId=29401280": [
-     {
-      "method": "POST",
-      "request": null,
       "response": []
      }
     ],
@@ -11490,15 +11499,6 @@
        "tradingAccountId": 29401280,
        "startTradeDay": "2026-11-01T07:00:00.000Z",
        "endTradeDay": "2026-12-01T07:59:59.999Z"
-      },
-      "response": []
-     }
-    ],
-    "Statistics/lifetimestats": [
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29401280
       },
       "response": []
      }
@@ -11515,9 +11515,9 @@
      }
     ]
    },
-   "fetched_at_pt": "2026-11-04 23:03:29 PST",
+   "fetched_at_pt": "2026-11-04 23:28:06 PST",
    "fetched_at_note": "Time reported by TopstepX User/currentTimeUtc during the fetch, converted to PT.",
-   "last_sync_pt": "2026-11-04 23:03:36 PST"
+   "last_sync_pt": "2026-11-04 23:28:13 PST"
   },
   {
    "id": "express1",

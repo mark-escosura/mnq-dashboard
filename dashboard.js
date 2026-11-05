@@ -143,7 +143,7 @@ function tradeCard(x,A,full){var t=x.t,dir=t.direction==='short'?'short':'long',
     (full?(sample?'':'<button type="button" class="del" data-del="'+esc(t.id)+'" title="Delete trade" aria-label="Delete trade">'+ico('trash')+'</button>'):'<span class="chev">'+ico('right')+'</span>')+'</article>';}
 function emptyTrades(){return '<div class="card empty-card">No trades yet.<div class="btns center"><button type="button" class="btn pri" data-act="add">＋ Add trade</button><button type="button" class="btn" data-act="import">Import CSV</button></div></div>';}
 function tradeLists(rows){var A={};accounts().forEach(function(a){A[a.id]=a.name;});var L=rows.slice().reverse();
-  $('#recent').innerHTML=L.length?L.slice(0,5).map(function(x){return tradeCard(x,A,false);}).join(''):emptyTrades();
+  $('#recent').innerHTML=L.length?L.slice(0,3).map(function(x){return tradeCard(x,A,false);}).join(''):emptyTrades();
   $('#allTrades').innerHTML=L.length?L.map(function(x){return tradeCard(x,A,true);}).join(''):emptyTrades();
   $('#tradeCount').textContent=L.length?'('+L.length+')':'';}
 function isRet(id){return (SEED.accounts||[]).some(function(a){return a.id===id&&a.retired;});}
@@ -151,7 +151,7 @@ function acctOptions(sel){var v=sel.value;sel.innerHTML='<option value="">All ac
 function render(){[$('#fAcct'),$('#shAcct')].forEach(acctOptions);
   var f=filt(),rows=select(f),s=stats(rows),pr=prior(f),cmp=null;
   if(pr&&rows.length){var ps=stats(select(pr));cmp={s:ps,len:pr.len};}
-  $('#rangeLbl').textContent=rangeLabel(f);acctSummary(f.acct);syncLbl();renderCal();renderSet();
+  $('#rangeLbl').textContent=rangeLabel(f);acctSummary(f.acct);heroRender(f,rows);syncLbl();renderCal();renderSet();
   $('#kpis').innerHTML=kpiHTML(s,cmp,true);sparks(rows);drawChart('eqChart','eqEmpty',s,$('#eqMode').value);stratCards(rows);setupTable(rows);tradeLists(rows);
   $('#eqNote').textContent='';eqAcct=f.acct?acctName(f.acct):'';
   $('#sampleBanner').classList.toggle('hide',!sample);document.body.classList.toggle('sampling',!!sample);
@@ -166,6 +166,14 @@ function acctSummary(id){var a=(SEED.accounts||[]).filter(function(x){return x.i
 function payHTML(a){var r=a.rules||{};if(a.retired||!r.payout_win_day_min)return '';var M={};select({from:'',to:'',acct:a.id}).forEach(function(x){M[x.t.date]=(M[x.t.date]||0)+x.p;});
   var n=Object.keys(M).filter(function(k){return M[k]>=r.payout_win_day_min;}).length,N=r.payout_win_days_needed||5;
   return '<div class="pay" title="Days with net P&L of $'+r.payout_win_day_min+' or more"><span>$'+r.payout_win_day_min+'+ days</span><b>'+Math.min(n,N)+'/'+N+'</b><i style="width:'+(Math.min(n,N)/N*100)+'%"></i></div>';}
+function heroRender(f,rows){var a=(SEED.accounts||[]).filter(function(x){return x.id===f.acct;})[0];
+  $('#topName').textContent=f.acct?acctName(f.acct):'All accounts';$('#topSub').textContent='Playbook · '+rangeLabel(f);
+  var net=0,w=0,D={};rows.forEach(function(x){net+=x.p;if(x.p>0)w++;D[x.t.date]=1;});var nd=Object.keys(D).length,n=rows.length;
+  var c='<span class="chip">Win <b>'+(n?Math.round(w/n*100)+'%':'–')+'</b></span><span class="chip"><b>'+nd+'</b> day'+(nd===1?'':'s')+'</span><span class="chip"><b>'+n+'</b> trade'+(n===1?'':'s')+'</span>';
+  if(a&&!a.retired&&a.rules&&a.rules.payout_win_day_min){var r=a.rules,M={};select({from:'',to:'',acct:a.id}).forEach(function(x){M[x.t.date]=(M[x.t.date]||0)+x.p;});
+    var k=Object.keys(M).filter(function(d){return M[d]>=r.payout_win_day_min;}).length,N=r.payout_win_days_needed||5;c+='<span class="chip pay" title="Days with net P&L of $'+r.payout_win_day_min+'+">$'+r.payout_win_day_min+'+ days '+Math.min(k,N)+'/'+N+'</span>';}
+  if(a&&a.retired)c+='<span class="chip">Retired</span>';
+  $('#hero').innerHTML='<div class="hl">Net P&amp;L</div><div class="hn '+cls(net)+'">'+(n?money(net,true):'$0.00')+'</div><div class="chips">'+c+'</div>';}
 function uniq(a){var o={},r=[];a.forEach(function(x){x=(x||'').trim();if(x&&!o[x]){o[x]=1;r.push(x);}});return r;}
 
 /* ---------- modals ---------- */
@@ -417,7 +425,7 @@ $('#presets').addEventListener('click',function(e){var b=e.target.closest('[data
   preset={name:b.textContent,fr:fr,to:to};$('#fFrom').value=fr;$('#fTo').value=to;render();closeM(b);});
 /* tabs */
 function go(v){var V={dash:'#viewDash',trades:'#viewTrades',cal:'#viewCal',set:'#viewSet'},T={dash:'#tabDash',trades:'#tabTrades',cal:'#tabCal',set:'#tabSet'};if(!V[v])v='dash';
-  Object.keys(V).forEach(function(k){$(V[k]).classList.toggle('hide',k!==v);$(T[k]).classList.toggle('on',k===v);$(T[k]).setAttribute('aria-current',k===v?'page':'false');});
+  Object.keys(V).forEach(function(k){$(V[k]).classList.toggle('hide',k!==v&&!(k==='cal'&&v==='dash'));$(T[k]).classList.toggle('on',k===v);$(T[k]).setAttribute('aria-current',k===v?'page':'false');});
   document.body.setAttribute('data-view',v);window.scrollTo(0,0);if(v==='dash')Object.keys(charts).forEach(function(k){charts[k].resize();});}
 document.addEventListener('click',function(e){var g=e.target.closest('[data-go]');if(g){go(g.getAttribute('data-go'));return;}
   var a=e.target.closest('[data-act]');if(a){$(a.getAttribute('data-act')==='add'?'#btnAdd':'#btnImport').click();return;}

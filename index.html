@@ -7,20 +7,20 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="MNQ Journal">
+<meta name="apple-mobile-web-app-title" content="Playbook">
 <meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
-<title>MNQ Journal · Strategy Dashboard</title>
+<title>Playbook</title>
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="dashboard.css">
 <script src="vendor/chart.umd.min.js"></script>
 </head>
-<body>
+<body data-view="dash">
 <div class="sample-banner hide" id="sampleBanner">⚠ SAMPLE DATA · not real, not saved</div>
 <header class="top">
-  <h1>MNQ Journal</h1>
+  <div class="brand"><span class="bmark">P</span><div><h1 id="topName">Playbook</h1><div class="small mut" id="topSub">Playbook</div></div></div>
   <div class="hbtns"><button type="button" class="ibtn" id="syncBtn" aria-label="Sync TopstepX" title="Sync TopstepX"><span class="ico" data-i="sync"></span></button>
   <button type="button" class="pill" id="rangeBtn" aria-haspopup="dialog"><span class="ico" data-i="cal"></span><span id="rangeLbl">All time</span><span class="ico sm" data-i="down"></span></button></div>
 </header>
@@ -28,6 +28,16 @@
   <label class="acctrow card" for="fAcct"><span class="ico wallet" data-i="wallet"></span><span class="mut">Account</span>
     <select id="fAcct" aria-label="Account"></select><span class="ico sm mut" data-i="right"></span></label>
   <section id="acctSum" class="card acctsum hide" aria-label="TopstepX account summary"></section>
+
+  <section id="hero" class="card hero" aria-label="Summary"></section>
+  <section id="viewCal" class="view">
+    <div class="card calhead">
+      <button type="button" class="ibtn" id="calPrev" aria-label="Previous month"><span class="ico sm" data-i="left"></span></button>
+      <div class="calt"><h2 id="calTitle"></h2><div><b id="calNet"></b> <span class="small mut" id="calSub"></span></div></div>
+      <button type="button" class="ibtn" id="calNext" aria-label="Next month"><span class="ico sm" data-i="right"></span></button>
+    </div>
+    <div class="card calcard"><div class="cal" id="calGrid" role="grid" aria-label="P&amp;L calendar"></div></div>
+  </section>
 
   <section id="viewDash" class="view">
     <div class="kpis" id="kpis"></div>
@@ -37,7 +47,7 @@
       <div class="chartbox"><canvas id="eqChart" aria-label="Equity curve"></canvas><div class="empty hide" id="eqEmpty">No trades yet.</div></div>
       <div class="small mut hide" id="eqNote"></div>
     </section>
-    <div class="sechead"><h2>Strategies</h2><button type="button" class="link" data-go="trades">View all <span class="ico sm" data-i="right"></span></button></div>
+    <div class="sechead strh"><h2>Strategies</h2><button type="button" class="link" data-go="trades">View all <span class="ico sm" data-i="right"></span></button></div>
     <div class="strats" id="strats"></div>
     <div class="sechead"><h2>Recent Trades</h2><button type="button" class="link" data-go="trades">View all <span class="ico sm" data-i="right"></span></button></div>
     <div class="tlist" id="recent"></div>
@@ -48,15 +58,6 @@
     <div class="tlist" id="allTrades"></div>
     <div class="sechead"><h2>Strategy details</h2></div>
     <section class="card"><div class="tw"><table id="tblSetup"></table></div></section>
-  </section>
-
-  <section id="viewCal" class="view hide">
-    <div class="card calhead">
-      <button type="button" class="ibtn" id="calPrev" aria-label="Previous month"><span class="ico sm" data-i="left"></span></button>
-      <div class="calt"><h2 id="calTitle"></h2><div><b id="calNet"></b> <span class="small mut" id="calSub"></span></div></div>
-      <button type="button" class="ibtn" id="calNext" aria-label="Next month"><span class="ico sm" data-i="right"></span></button>
-    </div>
-    <div class="card calcard"><div class="cal" id="calGrid" role="grid" aria-label="P&amp;L calendar"></div></div>
   </section>
 
   <section id="viewSet" class="view hide">
@@ -76,9 +77,9 @@
 
 <button type="button" class="fab" id="btnAdd" aria-label="Add trade"><span class="ico" data-i="plus"></span></button>
 <nav class="tabbar" aria-label="Sections">
-  <button type="button" class="tab on" id="tabDash" data-go="dash"><span class="ico" data-i="grid"></span><span>Dashboard</span></button>
-  <button type="button" class="tab" id="tabTrades" data-go="trades"><span class="ico" data-i="list"></span><span>Trades</span></button>
+  <button type="button" class="tab on" id="tabDash" data-go="dash"><span class="ico" data-i="grid"></span><span>Home</span></button>
   <button type="button" class="tab" id="tabCal" data-go="cal"><span class="ico" data-i="cal"></span><span>Calendar</span></button>
+  <button type="button" class="tab" id="tabTrades" data-go="trades"><span class="ico" data-i="list"></span><span>Trades</span></button>
   <button type="button" class="tab" id="tabSet" data-go="set"><span class="ico" data-i="gear"></span><span>Settings</span></button>
 </nav>
 
