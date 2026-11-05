@@ -7,7 +7,7 @@
 var KEY='mnqJournal.v1', TZ='America/Los_Angeles';
 var COLS=['kind','id','date','time','instrument','direction','contracts','entry','stop','target','exit','exit_time','pnl','pnl_manual','r','r_manual','setup','followed_rules','notes','tags','text','fees','broker','import_keys','accounts'];
 var INSTR={MNQ:{pv:2,fee:1.24},NQ:{pv:20,fee:0},MES:{pv:5,fee:0},ES:{pv:50,fee:0},M2K:{pv:5,fee:0},RTY:{pv:50,fee:0},MYM:{pv:0.5,fee:0},YM:{pv:5,fee:0},MGC:{pv:10,fee:0},GC:{pv:100,fee:0},MCL:{pv:100,fee:0},CL:{pv:1000,fee:0}};
-var DEFAULT_ACCTS=[{id:'static50k',name:'Static 50K'},{id:'combine1',name:'Combine 50K #1'},{id:'combine2',name:'Combine 50K #2'},{id:'express1',name:'50K DLL Express #1'}];
+var DEFAULT_ACCTS=[{id:'static50k',name:'Static 50K'},{id:'combine1',name:'Combine 50K #1'},{id:'combine2',name:'Combine 50K #2'},{id:'express1',name:'50K DLL Express #1'},{id:'express2',name:'50K Express Funded'}];
 
 function $(s){return document.querySelector(s);}
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
@@ -146,7 +146,8 @@ function tradeLists(rows){var A={};accounts().forEach(function(a){A[a.id]=a.name
   $('#recent').innerHTML=L.length?L.slice(0,5).map(function(x){return tradeCard(x,A,false);}).join(''):emptyTrades();
   $('#allTrades').innerHTML=L.length?L.map(function(x){return tradeCard(x,A,true);}).join(''):emptyTrades();
   $('#tradeCount').textContent=L.length?'('+L.length+')':'';}
-function acctOptions(sel){var v=sel.value;sel.innerHTML='<option value="">All accounts</option>'+accounts().map(function(a){return '<option value="'+esc(a.id)+'">'+esc(a.name)+'</option>';}).join('');sel.value=v;if(sel.value!==v)sel.value='';}
+function isRet(id){return (SEED.accounts||[]).some(function(a){return a.id===id&&a.retired;});}
+function acctOptions(sel){var v=sel.value;sel.innerHTML='<option value="">All accounts</option>'+accounts().map(function(a){return '<option value="'+esc(a.id)+'">'+esc(a.name)+(isRet(a.id)?' (retired)':'')+'</option>';}).join('');sel.value=v;if(sel.value!==v)sel.value='';}
 function render(){[$('#fAcct'),$('#shAcct')].forEach(acctOptions);
   var f=filt(),rows=select(f),s=stats(rows),pr=prior(f),cmp=null;
   if(pr&&rows.length){var ps=stats(select(pr));cmp={s:ps,len:pr.len};}
@@ -159,9 +160,12 @@ function acctSummary(id){var a=(SEED.accounts||[]).filter(function(x){return x.i
   var d=a.share_page_displayed||{},K=[['Total P&L','Net P&L'],['Trade Win %','Win %'],['Profit Factor','PF'],['Avg Win / Avg Loss','Avg W/L'],['Total Number of Trades','Trades']],
     M=[['Total Number of Lots Traded','Lots'],['Best Trade','Best'],['Worst Trade','Worst']];
   function dl(L){return '<dl class="asum">'+L.filter(function(k){return d[k[0]];}).map(function(k){return '<div><dt title="'+esc(k[0])+'">'+esc(k[1])+'</dt><dd>'+esc(d[k[0]])+'</dd></div>';}).join('')+'</dl>';}
-  el.innerHTML='<div class="row"><h2>'+esc(a.name)+'</h2><span class="rchip ok">'+esc(a.broker||'')+'</span></div>'+dl(K)+
+  el.innerHTML='<div class="row"><h2>'+esc(a.name)+'</h2>'+(a.retired?'<span class="rchip">Retired</span>':'<span class="rchip ok">'+esc(a.broker||'')+'</span>')+'</div>'+dl(K)+payHTML(a)+
     '<div class="afoot"><details class="more"><summary>More</summary>'+dl(M)+'<p class="small mut">From the TopstepX share page ('+esc(a.share_page_range_default||'')+'), fetched '+esc(a.fetched_at_pt||'')+'. Account '+esc(a.topstepx_account_name||'')+'.</p></details>'+
     '<a class="small" href="'+esc(a.source_url)+'" target="_blank" rel="noopener">Share page ↗</a></div>';el.classList.remove('hide');}
+function payHTML(a){var r=a.rules||{};if(a.retired||!r.payout_win_day_min)return '';var M={};select({from:'',to:'',acct:a.id}).forEach(function(x){M[x.t.date]=(M[x.t.date]||0)+x.p;});
+  var n=Object.keys(M).filter(function(k){return M[k]>=r.payout_win_day_min;}).length,N=r.payout_win_days_needed||5;
+  return '<div class="pay" title="Days with net P&L of $'+r.payout_win_day_min+' or more"><span>$'+r.payout_win_day_min+'+ days</span><b>'+Math.min(n,N)+'/'+N+'</b><i style="width:'+(Math.min(n,N)/N*100)+'%"></i></div>';}
 function uniq(a){var o={},r=[];a.forEach(function(x){x=(x||'').trim();if(x&&!o[x]){o[x]=1;r.push(x);}});return r;}
 
 /* ---------- modals ---------- */
@@ -240,7 +244,7 @@ function refreshAccts(){if(!/^https?:/.test(location.protocol))return Promise.re
   return fetch('accounts.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(j){if(!j||!j.accounts)return;var M={};j.accounts.forEach(function(a){M[a.id]=a;});
     (SEED.accounts||[]).forEach(function(a,i){var b=M[a.id];if(b){delete b.raw_responses;SEED.accounts[i]=b;}});}).catch(function(){});}
 function syncNow(){if(sample){toast('Turn off sample data first');return;}var bs=[$('#syncBtn'),$('#setSync')];if(bs[0].classList.contains('spin'))return;var btn={classList:{add:function(c){bs.forEach(function(b){b.classList.add(c);});},remove:function(c){bs.forEach(function(b){b.classList.remove(c);});}}};btn.classList.add('spin');
-  var A=(SEED.accounts||[]).filter(function(a){return a.topstepx_account_id&&delAccts().indexOf(a.id)<0;}),end=new Date(Date.now()+2*864e5).toISOString();
+  var A=(SEED.accounts||[]).filter(function(a){return a.topstepx_account_id&&!a.retired&&delAccts().indexOf(a.id)<0;}),end=new Date(Date.now()+2*864e5).toISOString();
   function done(n,mode){db.settings=db.settings||{};db.settings.lastSync={at:new Date().toISOString(),mode:mode};persist();btn.classList.remove('spin');render();
     toast((n?'+'+n+' trade'+(n===1?'':'s'):'Up to date')+(mode==='live'?'':' (published data)'));}
   function published(){return fetch('journal.csv?v='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.text();})
@@ -432,5 +436,5 @@ $('#fSample').addEventListener('change',function(){if(!this.checked){sample=null
     t.pnl=autoPnl(t);t.r=autoR(t);L.push(t);}
   sample=L;render();});
 $('#syncBtn').onclick=$('#setSync').onclick=syncNow;
-hydrateIcons();applySeed();render();
+hydrateIcons();applySeed();render();(function(){var d=(SEED.accounts||[]).filter(function(a){return a.default&&!a.retired;})[0];if(d&&accounts().some(function(a){return a.id===d.id;})){$('#fAcct').value=d.id;render();}})();
 })();
