@@ -39,6 +39,13 @@
    },
    "share_page_range_default": "10/06/2026 – 11/05/2026",
    "raw_responses": {
+    "User/currentTimeUtc": [
+     {
+      "method": "GET",
+      "request": null,
+      "response": "2026-11-05T07:29:44.8964557+00:00"
+     }
+    ],
     "UserContract/all": [
      {
       "method": "GET",
@@ -11331,13 +11338,6 @@
       ]
      }
     ],
-    "User/currentTimeUtc": [
-     {
-      "method": "GET",
-      "request": null,
-      "response": "2026-11-05T07:28:06.4062887+00:00"
-     }
-    ],
     "Statistics/checkSharing?tradingAccountId=29401280": [
      {
       "method": "GET",
@@ -11379,6 +11379,20 @@
       "response": []
      }
     ],
+    "Statistics/profitFactor": [
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29401280,
+       "startTradeDay": "2026-10-06T05:00:00.000Z",
+       "endTradeDay": "2026-11-06T05:59:59.999Z"
+      },
+      "response": {
+       "totalProfit": 0,
+       "totalLoss": 0
+      }
+     }
+    ],
     "Statistics/daystats": [
      {
       "method": "POST",
@@ -11413,54 +11427,13 @@
       }
      }
     ],
-    "Statistics/profitFactor": [
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29401280,
-       "startTradeDay": "2026-10-06T05:00:00.000Z",
-       "endTradeDay": "2026-11-06T05:59:59.999Z"
-      },
-      "response": {
-       "totalProfit": 0,
-       "totalLoss": 0
-      }
-     }
-    ],
-    "Statistics/lifetimestats": [
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29401280
-      },
-      "response": []
-     }
-    ],
     "Statistics/weekly": [
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29401280,
-       "startTradeDay": "2026-11-08T08:00:00.000Z",
-       "endTradeDay": "2026-11-15T07:59:59.999Z"
-      },
-      "response": []
-     },
      {
       "method": "POST",
       "request": {
        "tradingAccountId": 29401280,
        "startTradeDay": "2026-11-01T07:00:00.000Z",
        "endTradeDay": "2026-11-08T07:59:59.999Z"
-      },
-      "response": []
-     },
-     {
-      "method": "POST",
-      "request": {
-       "tradingAccountId": 29401280,
-       "startTradeDay": "2026-11-29T08:00:00.000Z",
-       "endTradeDay": "2026-12-06T07:59:59.999Z"
       },
       "response": []
      },
@@ -11486,19 +11459,26 @@
       "method": "POST",
       "request": {
        "tradingAccountId": 29401280,
-       "startTradeDay": "2026-12-06T08:00:00.000Z",
-       "endTradeDay": "2026-12-13T07:59:59.999Z"
+       "startTradeDay": "2026-11-08T08:00:00.000Z",
+       "endTradeDay": "2026-11-15T07:59:59.999Z"
       },
       "response": []
-     }
-    ],
-    "Statistics/monthly": [
+     },
      {
       "method": "POST",
       "request": {
        "tradingAccountId": 29401280,
-       "startTradeDay": "2026-11-01T07:00:00.000Z",
-       "endTradeDay": "2026-12-01T07:59:59.999Z"
+       "startTradeDay": "2026-11-29T08:00:00.000Z",
+       "endTradeDay": "2026-12-06T07:59:59.999Z"
+      },
+      "response": []
+     },
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29401280,
+       "startTradeDay": "2026-12-06T08:00:00.000Z",
+       "endTradeDay": "2026-12-13T07:59:59.999Z"
       },
       "response": []
      }
@@ -11513,11 +11493,31 @@
       },
       "response": []
      }
+    ],
+    "Statistics/lifetimestats": [
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29401280
+      },
+      "response": []
+     }
+    ],
+    "Statistics/monthly": [
+     {
+      "method": "POST",
+      "request": {
+       "tradingAccountId": 29401280,
+       "startTradeDay": "2026-11-01T07:00:00.000Z",
+       "endTradeDay": "2026-12-01T07:59:59.999Z"
+      },
+      "response": []
+     }
     ]
    },
-   "fetched_at_pt": "2026-11-04 23:28:06 PST",
+   "fetched_at_pt": "2026-11-04 23:29:44 PST",
    "fetched_at_note": "Time reported by TopstepX User/currentTimeUtc during the fetch, converted to PT.",
-   "last_sync_pt": "2026-11-04 23:28:13 PST"
+   "last_sync_pt": "2026-11-04 23:29:51 PST"
   },
   {
    "id": "express1",

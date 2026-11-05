@@ -444,5 +444,5 @@ $('#fSample').addEventListener('change',function(){if(!this.checked){sample=null
     t.pnl=autoPnl(t);t.r=autoR(t);L.push(t);}
   sample=L;render();});
 $('#syncBtn').onclick=$('#setSync').onclick=syncNow;
-hydrateIcons();applySeed();render();(function(){var d=(SEED.accounts||[]).filter(function(a){return a.default&&!a.retired;})[0];if(d&&accounts().some(function(a){return a.id===d.id;})){$('#fAcct').value=d.id;render();}})();
+hydrateIcons();applySeed();render();(function(){var d=(SEED.accounts||[]).filter(function(a){return a.default&&!a.retired;})[0];if(d&&accounts().some(function(a){return a.id===d.id;})){$('#fAcct').value=d.id;calM=null;render();}})();
 })();
