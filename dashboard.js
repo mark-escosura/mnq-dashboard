@@ -294,8 +294,12 @@ function openDay(k){var d=dayMap()[k];if(!d)return;var A={};accounts().forEach(f
   $('#dayList').innerHTML=d.rows.slice().reverse().map(function(x){return tradeCard(x,A,false);}).join('');openM('#mDay');}
 /* ---------- settings ---------- */
 function renderSet(){var S={};(SEED.accounts||[]).forEach(function(a){S[a.id]=a;});
-  $('#setAccts').innerHTML=accounts().map(function(a){var n=db.trades.filter(function(t){return t.accounts&&t.accounts.indexOf(a.id)>=0;}).length,s=S[a.id];
-    return '<div class="setrow"><div class="sa"><div class="sn">'+esc(a.name)+'</div><div class="small mut">'+n+' trade'+(n===1?'':'s')+(s&&s.source_url?' · <a href="'+esc(s.source_url)+'" target="_blank" rel="noopener">Share link ↗</a>':'')+'</div></div>'+
+  $('#setAccts').innerHTML=accounts().map(function(a){var n=db.trades.filter(function(t){return t.accounts&&t.accounts.indexOf(a.id)>=0;}).length,s=S[a.id],r=s&&s.rules||{},bits=[];
+    if(r.contracts_per_trade)bits.push(r.contracts_per_trade);
+    if(isFinite(r.stop_net))bits.push('stop '+money(r.stop_net,true));
+    if(isFinite(r.target_net))bits.push('target '+money(r.target_net,true));
+    if(r.strategy)bits.push(r.strategy);
+    return '<div class="setrow"><div class="sa"><div class="sn">'+esc(a.name)+'</div><div class="small mut">'+n+' trade'+(n===1?'':'s')+(bits.length?' · '+esc(bits.join(' · ')):'')+(s&&s.source_url?' · <a href="'+esc(s.source_url)+'" target="_blank" rel="noopener">Share link ↗</a>':'')+'</div></div>'+
       (sample?'':'<button type="button" class="ibtn del" data-delacct="'+esc(a.id)+'" aria-label="Delete '+esc(a.name)+'" title="Delete">'+ico('trash','sm')+'</button>')+'</div>';}).join('')||'<div class="small mut">No accounts</div>';}
 $('#calPrev').onclick=function(){calShift(-1);};$('#calNext').onclick=function(){calShift(1);};
 $('#calGrid').addEventListener('click',function(e){var b=e.target.closest('[data-day]');if(b)openDay(b.getAttribute('data-day'));});

@@ -10,14 +10,17 @@
    "status": "live",
    "default": true,
    "rules": {
-    "contracts_per_trade": "2 MNQ",
+    "contracts_per_trade": "1 MNQ",
+    "stop_net": -101.72,
+    "target_net": 150.78,
     "daily_loss_limit": 1000,
     "trailing_max_loss": 2000,
     "payout_win_day_min": 150,
-    "payout_win_days_needed": 5
+    "payout_win_days_needed": 5,
+    "strategy": "ARCH-005-v1.1"
    },
-   "rules_note": "From Mark, Nov 4, 2026.",
-   "notes": "Mark's only live account as of Nov 4, 2026 (0 trades, $0 P&L).",
+   "rules_note": "From Mark via Strategy Architect, Nov 5, 2026 (ARCH-005-v1.1): 1 MNQ micro, stop ~-$101.72 net, target ~+$150.78 net.",
+   "notes": "Mark's only live account. Size cut to 1 MNQ on Nov 5, 2026 (was 2).",
    "share_page_displayed": {
     "Total P&L": "$0.00",
     "Trade Win %": "0.00%",
