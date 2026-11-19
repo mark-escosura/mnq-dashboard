@@ -192,7 +192,9 @@ function heroRender(f,rows){var a=(SEED.accounts||[]).filter(function(x){return 
     var k=Object.keys(M).filter(function(d){return M[d]>=r.payout_win_day_min;}).length,N=r.payout_win_days_needed||5;c+='<span class="chip pay" title="Days with net P&L of $'+r.payout_win_day_min+'+">$'+r.payout_win_day_min+'+ days '+Math.min(k,N)+'/'+N+'</span>';}
   if(a&&a.retired)c+='<span class="chip">Retired</span>';
   var tx=a&&!sample&&!f.from&&!f.to&&a.share_page_displayed&&num(a.share_page_displayed['Total P&L']);
-  if(isFinite(tx)&&tx!==false&&a.share_page_displayed['Total P&L']){var okm=Math.abs(Math.round(net*100)-Math.round(tx*100))<1;
+  var pn=num(a&&a.share_page_displayed&&a.share_page_displayed['Total Number of Trades']);
+  if(isFinite(tx)&&tx!==false&&isFinite(pn)&&pn<n){c+='<span class="chip gold" id="tsxMatch" title="The TopstepX share page totals skip the trading day still in progress; they update after the day closes (fetched '+esc(a.fetched_at_pt||'')+')">⏳ TopstepX page: '+pn+' of '+n+' trades (day open)</span>';}
+  else if(isFinite(tx)&&tx!==false&&a.share_page_displayed['Total P&L']){var okm=Math.abs(Math.round(net*100)-Math.round(tx*100))<1;
     c+='<span class="chip '+(okm?'tsxok':'tsxbad')+'" id="tsxMatch" title="Total P&L on the TopstepX share page, fetched '+esc(a.fetched_at_pt||'')+'">'+(okm?'✓ Matches TopstepX':'⚠ TopstepX '+esc(money(tx,true)))+'</span>';}
   var rr=a&&a.rules||{},lim=(a&&!a.retired&&(rr.daily_loss_limit||rr.trailing_max_loss))?'<div class="hlim mono">'+(rr.daily_loss_limit?'DLL <b>'+money(rr.daily_loss_limit)+'</b>':'')+(rr.trailing_max_loss?'<br>MLL <b>'+money(rr.trailing_max_loss)+'</b>':'')+(rr.strategy?'<br><span class="acc">'+esc(rr.strategy)+'</span>':'')+'</div>':'';
   $('#hero').innerHTML='<div class="hrow"><div><div class="hl">Net P&amp;L · '+esc(rangeLabel(f))+'</div><div class="hn mono '+cls(net)+'">'+(n?money(net,true):'$0.00')+'</div></div>'+lim+'</div><div class="chips">'+c+'</div>';}
