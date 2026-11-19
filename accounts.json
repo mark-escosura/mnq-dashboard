@@ -1,0 +1,31 @@
+{
+ "accounts": [
+  {
+   "id": "express2",
+   "name": "50K Express Funded",
+   "broker": "TopstepX",
+   "rules": {
+    "contracts_per_trade": "1 MNQ",
+    "stop_net": -101.72,
+    "target_net": 150.78,
+    "daily_loss_limit": 1000,
+    "trailing_max_loss": 2000,
+    "payout_win_day_min": 150,
+    "payout_win_days_needed": 5,
+    "strategy": "ARCH-005-v1.1"
+   },
+   "rules_note": "From Mark via Strategy Architect, Nov 5, 2026 (ARCH-005-v1.1): 1 MNQ micro, stop ~-$101.72 net, target ~+$150.78 net.",
+   "status": "closed",
+   "retired": true,
+   "retired_note": "Account closed Nov 18, 2026; journal data cleared (archived in archive-account-closed-20261118/)."
+  },
+  {
+   "id": "express1",
+   "name": "50K DLL Express #1",
+   "broker": "TopstepX",
+   "status": "closed",
+   "retired": true,
+   "retired_note": "Account closed Nov 18, 2026; journal data cleared (archived in archive-account-closed-20261118/)."
+  }
+ ]
+}
